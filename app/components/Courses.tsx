@@ -1,11 +1,26 @@
 export default function Courses() {
-  const upcomingCourses = [
+  const courses = [
     {
-      name: "Cloud Computing",
-      description: "Curso orientado a arquitectura cloud, servicios distribuidos, despliegue y buenas prácticas en la nube.",
-      tags: ["AWS", "GCP", "DevOps", "Arquitectura"],
-      status: "Próximamente",
+      name: "Desarrollo de Aplicaciones Web",
+      semester: "Semestre 2025-2",
+      description: "Curso intensivo de 64 horas donde los alumnos construyen aplicaciones full-stack con Next.js, TypeScript, Supabase y despliegue en Vercel. Metodologías ágiles, CI/CD y trabajo colaborativo con GitHub.",
+      url: "https://webacatlan-ptjj.vercel.app/",
+      tags: ["Next.js", "TypeScript", "Supabase", "Vercel", "GitHub"],
+      status: "Disponible",
+      icon: "ri-global-line",
     },
+    {
+      name: "Cómputo en la Nube",
+      semester: "Semestre 2025-2",
+      description: "Curso orientado a arquitectura cloud, servicios distribuidos, despliegue y buenas prácticas en la nube con proveedores líderes del mercado.",
+      url: "https://cloud-computing-beta-plum.vercel.app/",
+      tags: ["AWS", "GCP", "DevOps", "Arquitectura"],
+      status: "Disponible",
+      icon: "ri-cloud-line",
+    },
+  ];
+
+  const upcomingCourses = [
     {
       name: "Nuevas asignaturas",
       description: "Líneas temáticas en desarrollo centradas en inteligencia artificial aplicada y sistemas modernos.",
@@ -36,115 +51,72 @@ export default function Courses() {
           </span>
         </div>
 
-        {/* ─── CURSO PRINCIPAL ─── */}
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
-          {/* Left: Course card with preview */}
-          <div className="lg:col-span-3">
-            <a
-              href="https://webacatlan-ptjj.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block bg-white rounded-2xl border border-[#E0E0DE] overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+        {/* ─── CURSOS ACTIVOS ─── */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
+          {courses.map((course, i) => (
+            <div
+              key={i}
+              className="bg-white border border-[#E0E0DE] rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
             >
-              {/* Preview header */}
-              <div className="bg-gradient-to-br from-[#013B75] to-[#1a5296] p-8 sm:p-10 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-[#D9A500]/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                      <i className="ri-global-line text-[#D9A500] text-2xl"></i>
-                    </div>
-                    <span className="inline-block bg-[#3E7A22]/20 text-[#7cdb4a] text-xs font-semibold px-2.5 py-1 rounded-full border border-[#3E7A22]/30">
-                      Disponible
-                    </span>
-                  </div>
-                  <h3 className="text-white font-semibold text-2xl sm:text-3xl mb-2">
-                    Desarrollo de Aplicaciones Web
-                  </h3>
-                  <span className="inline-block bg-white/10 text-white/90 text-xs font-medium px-3 py-1 rounded-full">
-                    Semestre 2025-2
-                  </span>
-                </div>
+              {/* Iframe preview */}
+              <div className="relative w-full aspect-[16/10] bg-[#f0f0f0] overflow-hidden border-b border-[#E0E0DE]">
+                <iframe
+                  src={course.url}
+                  title={course.name}
+                  className="w-full h-full pointer-events-none"
+                  loading="lazy"
+                  sandbox="allow-scripts allow-same-origin"
+                />
+                {/* Overlay to allow clicking the card */}
+                <a
+                  href={course.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-10"
+                  aria-label={`Abrir ${course.name}`}
+                />
               </div>
 
               {/* Card body */}
-              <div className="p-6 sm:p-8">
-                <p className="text-[#5A5A5A] text-base leading-relaxed mb-6 max-w-[65ch]">
-                  Curso intensivo de 64 horas donde los alumnos construyen aplicaciones full-stack con Next.js, TypeScript, Supabase y despliegue en Vercel. Metodologías ágiles, CI/CD y trabajo colaborativo con GitHub.
+              <div className="p-5 sm:p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-[#013B75]/10 flex items-center justify-center">
+                    <i className={`${course.icon} text-[#013B75] text-lg`}></i>
+                  </div>
+                  <span className="inline-block bg-[#3E7A22]/10 text-[#3E7A22] text-[10px] font-semibold px-2 py-0.5 rounded-full border border-[#3E7A22]/20">
+                    {course.status}
+                  </span>
+                  <span className="text-[#8A8A8A] text-[10px] ml-auto">{course.semester}</span>
+                </div>
+
+                <h3 className="text-[#1A1A1A] font-semibold text-lg mb-2">{course.name}</h3>
+                <p className="text-[#5A5A5A] text-sm leading-relaxed mb-4 line-clamp-3">
+                  {course.description}
                 </p>
 
-                {/* CTA */}
-                <div className="flex items-center justify-between pt-4 border-t border-[#E0E0DE]">
-                  <span className="text-[#013B75] font-medium text-sm group-hover:underline">
-                    Ver página del curso
-                  </span>
-                  <div className="w-8 h-8 rounded-full bg-[#013B75]/5 flex items-center justify-center group-hover:bg-[#013B75] transition-colors">
-                    <i className="ri-arrow-right-up-line text-[#013B75] group-hover:text-white transition-colors"></i>
-                  </div>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {course.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="bg-[#F7F6F2] border border-[#E0E0DE] text-[#5A5A5A] text-[10px] font-medium px-2.5 py-1 rounded-md"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              </div>
-            </a>
-          </div>
 
-          {/* Right: Details */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* Technologies */}
-            <div>
-              <h4 className="text-[#1A1A1A] font-semibold text-sm uppercase tracking-wide mb-3">
-                Tecnologías
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {["Next.js", "TypeScript", "Supabase", "Vercel", "GitHub"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-white border border-[#E0E0DE] text-[#1A1A1A] text-xs font-medium px-3 py-1.5 rounded-lg"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                <a
+                  href={course.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#013B75] text-sm font-medium hover:underline"
+                >
+                  Ver página del curso
+                  <i className="ri-arrow-right-up-line"></i>
+                </a>
               </div>
             </div>
-
-            {/* Results */}
-            <div>
-              <h4 className="text-[#1A1A1A] font-semibold text-sm uppercase tracking-wide mb-3">
-                Resultados
-              </h4>
-              <ul className="space-y-3">
-                {[
-                  "Proyectos full-stack desplegados en producción",
-                  "Trabajo en equipos con metodologías ágiles",
-                  "Integración continua y despliegue automático",
-                  "Gamificación y evaluación por pares",
-                ].map((result, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-[#5A5A5A]">
-                    <i className="ri-check-line text-[#3E7A22] mt-0.5 flex-shrink-0"></i>
-                    {result}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Methodology */}
-            <div>
-              <h4 className="text-[#1A1A1A] font-semibold text-sm uppercase tracking-wide mb-3">
-                Metodología
-              </h4>
-              <div className="space-y-2">
-                {[
-                  { icon: "ri-team-line", text: "Scrum con sprints semanales" },
-                  { icon: "ri-git-branch-line", text: "Git Flow y code reviews" },
-                  { icon: "ri-trophy-line", text: "Gamificación por equipos" },
-                  { icon: "ri-presentation-line", text: "Demo days y retrospectivas" },
-                ].map((method, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-[#5A5A5A]">
-                    <i className={`${method.icon} text-[#D9A500]`}></i>
-                    {method.text}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* ─── CURSOS PRÓXIMOS ─── */}
