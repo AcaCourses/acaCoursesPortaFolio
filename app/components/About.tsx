@@ -81,8 +81,8 @@ export default function About() {
         </div>
 
         {/* Main card surface */}
-        <div className="bg-white border border-[#E0E0DE] rounded-2xl shadow-sm p-6 sm:p-8 lg:p-10">
-          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="bg-white border border-[#E0E0DE] rounded-2xl shadow-sm p-4 sm:p-6 md:p-8 lg:p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12">
             {/* ─── LEFT COLUMN: Identity ─── */}
             <div className="lg:col-span-2 space-y-6">
               {/* Identity block */}
@@ -137,14 +137,14 @@ export default function About() {
                   href="https://heyzine.com/flip-book/962233e534.html#page/12"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-[#F7F6F2] border border-[#E0E0DE] rounded-xl p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer block"
+                  className="group bg-[#F7F6F2] border border-[#E0E0DE] rounded-xl p-4 sm:p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer block"
                 >
-                  <div className="flex gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-[#013B75]/10 flex items-center justify-center flex-shrink-0">
-                      <i className="ri-article-line text-[#013B75] text-xl"></i>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[#013B75]/10 flex items-center justify-center flex-shrink-0">
+                      <i className="ri-article-line text-[#013B75] text-lg sm:text-xl"></i>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h5 className="text-[#1A1A1A] font-semibold text-sm leading-tight mb-1 group-hover:text-[#013B75] transition-colors">
+                      <h5 className="text-[#1A1A1A] font-semibold text-xs sm:text-sm leading-tight mb-1 group-hover:text-[#013B75] transition-colors break-words">
                         HOUSTON, TENEMOS UN §PROBLEMA? ARQUITECTURAS DE SOFTWARE QUE NO PUEDEN FALLAR
                       </h5>
                       <p className="text-[#8A8A8A] text-xs mb-2">21 oct. 2025</p>
@@ -215,78 +215,78 @@ export default function About() {
                   <i className="ri-external-link-line"></i>
                 </a>
               </div>
+            </div>
+          </div>
 
-              {/* Credentials carousel */}
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-[#8A8A8A] text-xs font-semibold uppercase tracking-wider">
-                    Credenciales
-                  </h4>
-                  <div className="flex gap-1">
-                    <button
-                      onClick={() => scroll("left")}
-                      className="w-7 h-7 rounded-full border border-[#E0E0DE] flex items-center justify-center hover:border-[#013B75] hover:text-[#013B75] transition-colors text-[#5A5A5A] cursor-pointer"
-                      aria-label="Anterior"
-                    >
-                      <i className="ri-arrow-left-s-line text-sm"></i>
-                    </button>
-                    <button
-                      onClick={() => scroll("right")}
-                      className="w-7 h-7 rounded-full border border-[#E0E0DE] flex items-center justify-center hover:border-[#013B75] hover:text-[#013B75] transition-colors text-[#5A5A5A] cursor-pointer"
-                      aria-label="Siguiente"
-                    >
-                      <i className="ri-arrow-right-s-line text-sm"></i>
-                    </button>
-                  </div>
-                </div>
-
-                <div
-                  ref={carouselRef}
-                  className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2 cursor-grab active:cursor-grabbing"
-                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-                  onMouseDown={handleMouseDown}
-                  onMouseMove={handleMouseMove}
-                  onMouseUp={handleMouseUp}
-                  onMouseLeave={handleMouseUp}
+          {/* ─── FULL WIDTH: Credentials carousel ─── */}
+          <div className="mt-8 pt-8 border-t border-[#E0E0DE]">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="text-[#8A8A8A] text-xs font-semibold uppercase tracking-wider">
+                Credenciales
+              </h4>
+              <div className="flex gap-1">
+                <button
+                  onClick={() => scroll("left")}
+                  className="w-7 h-7 rounded-full border border-[#E0E0DE] flex items-center justify-center hover:border-[#013B75] hover:text-[#013B75] transition-colors text-[#5A5A5A] cursor-pointer"
+                  aria-label="Anterior"
                 >
-                  {credentials.map((cred, i) => (
-                    <div
-                      key={i}
-                      className="flex-shrink-0 w-[240px] snap-start bg-[#F7F6F2] border border-[#E0E0DE] rounded-xl p-4 hover:border-[#013B75]/20 hover:shadow-sm transition-all duration-200"
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="w-7 h-7 rounded bg-[#013B75]/10 flex items-center justify-center">
-                          <i className={`text-[#013B75] text-xs ${
-                            cred.issuer === "AWS" ? "ri-cloud-line" :
-                            cred.issuer === "Google" ? "ri-google-line" :
-                            cred.issuer === "Oracle" ? "ri-database-2-line" :
-                            cred.issuer === "IBM" ? "ri-brain-line" :
-                            "ri-award-line"
-                          }`}></i>
-                        </div>
-                        <span className="text-[#8A8A8A] text-xs font-medium">{cred.issuer}</span>
-                      </div>
-                      <h5 className="text-[#1A1A1A] text-xs font-semibold leading-tight mb-1.5 line-clamp-2">
-                        {cred.name}
-                      </h5>
-                      <p className="text-[#8A8A8A] text-[10px]">
-                        {cred.issued}{cred.expires ? ` · Exp. ${cred.expires}` : ""}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                <a
-                  href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[#8A8A8A] text-xs mt-2 hover:text-[#013B75] transition-colors"
+                  <i className="ri-arrow-left-s-line text-sm"></i>
+                </button>
+                <button
+                  onClick={() => scroll("right")}
+                  className="w-7 h-7 rounded-full border border-[#E0E0DE] flex items-center justify-center hover:border-[#013B75] hover:text-[#013B75] transition-colors text-[#5A5A5A] cursor-pointer"
+                  aria-label="Siguiente"
                 >
-                  Más credenciales en LinkedIn
-                  <i className="ri-external-link-line"></i>
-                </a>
+                  <i className="ri-arrow-right-s-line text-sm"></i>
+                </button>
               </div>
             </div>
+
+            <div
+              ref={carouselRef}
+              className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2 cursor-grab active:cursor-grabbing -mx-4 px-4 sm:mx-0 sm:px-0"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+            >
+              {credentials.map((cred, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 w-[240px] snap-start bg-[#F7F6F2] border border-[#E0E0DE] rounded-xl p-4 hover:border-[#013B75]/20 hover:shadow-sm transition-all duration-200"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-7 h-7 rounded bg-[#013B75]/10 flex items-center justify-center">
+                      <i className={`text-[#013B75] text-xs ${
+                        cred.issuer === "AWS" ? "ri-cloud-line" :
+                        cred.issuer === "Google" ? "ri-google-line" :
+                        cred.issuer === "Oracle" ? "ri-database-2-line" :
+                        cred.issuer === "IBM" ? "ri-brain-line" :
+                        "ri-award-line"
+                      }`}></i>
+                    </div>
+                    <span className="text-[#8A8A8A] text-xs font-medium">{cred.issuer}</span>
+                  </div>
+                  <h5 className="text-[#1A1A1A] text-xs font-semibold leading-tight mb-1.5 line-clamp-2">
+                    {cred.name}
+                  </h5>
+                  <p className="text-[#8A8A8A] text-[10px]">
+                    {cred.issued}{cred.expires ? ` · Exp. ${cred.expires}` : ""}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-[#8A8A8A] text-xs mt-2 hover:text-[#013B75] transition-colors"
+            >
+              Más credenciales en LinkedIn
+              <i className="ri-external-link-line"></i>
+            </a>
           </div>
         </div>
       </div>
