@@ -112,7 +112,7 @@ export default function Certifications() {
   const handleMouseUp = () => setIsDragging(false);
 
   return (
-    <section id="credenciales" className="py-16 sm:py-24 bg-[#F7F6F2]">
+    <section id="credenciales" className="py-16 sm:py-24">
       <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
         {/* Header */}
         <div className="mb-10 sm:mb-14">

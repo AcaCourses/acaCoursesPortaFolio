@@ -90,7 +90,7 @@ export default function CVTimeline() {
   ];
 
   return (
-    <section id="cv" className="py-16 sm:py-24 bg-white">
+    <section id="cv" className="py-16 sm:py-24">
       <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
         {/* Header */}
         <div className="mb-12 sm:mb-16">

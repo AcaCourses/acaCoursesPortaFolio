@@ -30,7 +30,7 @@ export default function Courses() {
   ];
 
   return (
-    <section id="cursos" className="py-16 sm:py-24 bg-[#F7F6F2]">
+    <section id="cursos" className="py-16 sm:py-24">
       <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12 sm:mb-16">

@@ -65,7 +65,7 @@ export default function About() {
   }, [isDragging]);
 
   return (
-    <section id="sobre-mi" className="py-16 sm:py-24 bg-[#F7F6F2]">
+    <section id="sobre-mi" className="py-16 sm:py-24">
       <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
         {/* Section header */}
         <div className="mb-10">
