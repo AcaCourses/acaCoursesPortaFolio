@@ -132,182 +132,274 @@ export default function StudentEvidence() {
   ];
 
   return (
-    <section id="evidencia" className="py-16 sm:py-24 bg-white">
+    <section id="evidencia" className="py-16 sm:py-24">
       <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
 
-        {/* ─── 1. HERO VISUAL ─── */}
-        <div className="rounded-2xl overflow-hidden bg-[#013B75] mb-12 sm:mb-16">
-          <div className="grid lg:grid-cols-2">
-            {/* Left: Image - rotating */}
-            <div className="aspect-[4/3] lg:aspect-auto relative overflow-hidden bg-[#0a1e3d]">
-              {allImages.map((imgSrc, i) => (
-                <Image
-                  key={i}
-                  src={imgSrc}
-                  alt="Ecosistema de aprendizaje"
-                  fill
-                  className={`object-contain p-4 transition-opacity duration-1000 ${i === heroIndex ? "opacity-100" : "opacity-0"}`}
-                />
-              ))}
+        {/* ─── 1. HOJA PRINCIPAL — Editorial, no banner corporativo ─── */}
+        <div className="paper-surface bg-ruled rounded-2xl overflow-hidden mb-14 sm:mb-20 relative">
+          {/* Tape micro-detail on top */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-3 bg-[#C8C3AA]/30 rounded-b-sm z-10"></div>
+
+          <div className="grid lg:grid-cols-[1.1fr_1fr] min-h-[360px]">
+            {/* Left: Rotating evidence photo — framed as clipping */}
+            <div className="relative overflow-hidden m-5 sm:m-7 rounded-xl border border-[#DDD9D2]">
+              <div className="absolute inset-0 bg-[#1a2a3a]">
+                {allImages.map((imgSrc, i) => (
+                  <Image
+                    key={i}
+                    src={imgSrc}
+                    alt="Evidencia del ecosistema"
+                    fill
+                    className={`object-contain p-5 transition-opacity duration-1000 ${i === heroIndex ? "opacity-100" : "opacity-0"}`}
+                  />
+                ))}
+              </div>
+              {/* Archival caption */}
+              <div className="absolute bottom-0 left-0 right-0 bg-[#FFFDF9]/90 border-t border-[#DDD9D2] px-3 py-1.5">
+                <p className="text-[#5C5850] text-[10px] italic flex items-center gap-1.5">
+                  <i className="ri-camera-line text-[#8A8680] text-[9px]"></i>
+                  Registro fotográfico — Ecosistema de aprendizaje 2025-2026
+                </p>
+              </div>
             </div>
-            {/* Right: Text */}
-            <div className="p-8 sm:p-10 lg:p-12 flex flex-col justify-center">
-              <span className="text-[#D9A500] text-xs font-semibold uppercase tracking-wider mb-3">
+
+            {/* Right: Editorial text — margin-line for notebook feel */}
+            <div className="p-7 sm:p-9 lg:py-10 flex flex-col justify-center margin-line">
+              <span className="text-[#C4960A] text-[10px] font-semibold uppercase tracking-[0.2em] mb-4 inline-flex items-center gap-2">
+                <span className="w-4 h-px bg-[#C4960A]"></span>
                 Experiencia extendida del curso
               </span>
               <h2
-                className="text-white text-3xl sm:text-4xl mb-4"
+                className="text-[#2C2A26] text-3xl sm:text-4xl mb-4"
                 style={{ fontFamily: "'Instrument Serif', serif", lineHeight: "1.15" }}
               >
-                Ecosistema de Aprendizaje
+                Ecosistema de <span className="underline-hand">Aprendizaje</span>
               </h2>
-              <p className="text-white/80 text-base leading-relaxed max-w-[50ch]">
+              <p className="text-[#5C5850] text-sm leading-relaxed max-w-[46ch]">
                 Más que una clase, el curso conecta a los estudiantes con conferencias, workshops, comunidades y espacios donde circulan las tecnologías que ya usa la industria.
               </p>
-              <p className="text-white/60 text-sm mt-4 italic">
+              <p className="text-[#8A8680] text-xs mt-5 border-l-2 border-[#C4960A]/25 pl-3 italic leading-relaxed">
                 "Estos estudiantes no solo toman clase; se mueven en el ecosistema donde ocurren la IA, el cloud y el desarrollo moderno."
               </p>
             </div>
           </div>
         </div>
 
-        {/* ─── 2. EVENTOS DESTACADOS ─── */}
-        <div className="mb-12 sm:mb-16">
-          <h3 className="text-[#1A1A1A] font-semibold text-sm uppercase tracking-wide mb-6">
-            Eventos destacados
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {featuredEvents.map((event, index) => (
-              <div
-                key={index}
-                className="group bg-white border border-[#E0E0DE] rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-              >
-                {/* Image */}
-                <div className="aspect-[16/10] relative overflow-hidden bg-[#F7F6F2]">
-                  {event.image && (
+        {/* ─── 2. FICHAS DE EVIDENCIA — 1 protagonista + 2 soporte ─── */}
+        <div className="mb-14 sm:mb-20">
+          <div className="flex items-center gap-3 mb-7">
+            <span className="w-6 h-px bg-[#DDD9D2]"></span>
+            <h3 className="text-[#2C2A26] font-semibold text-xs uppercase tracking-[0.15em]">
+              Evidencias del ecosistema
+            </h3>
+            <span className="flex-1 h-px bg-[#DDD9D2]"></span>
+            <span className="text-[#8A8680] text-[10px] italic hidden sm:inline">fichas de registro</span>
+          </div>
+
+          {/* Asymmetric grid — card 0 is protagonist */}
+          <div className="grid lg:grid-cols-[1.4fr_1fr] gap-5">
+            {/* PROTAGONIST card — larger, tape detail, more breathing room */}
+            <div className="group note-card tape-detail rounded-xl overflow-hidden">
+              <div className="aspect-[16/9] relative overflow-hidden bg-[#F5F3EF]">
+                <Image
+                  src={featuredEvents[0].image}
+                  alt={featuredEvents[0].name}
+                  fill
+                  className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                />
+                <span className="absolute top-3 left-3 bg-[#1B4F72] text-white text-[10px] font-semibold px-2.5 py-1 rounded">
+                  {featuredEvents[0].type}
+                </span>
+              </div>
+              <div className="p-5 sm:p-6">
+                <h4 className="text-[#2C2A26] font-semibold text-base mb-1.5 leading-tight">
+                  {featuredEvents[0].name}
+                </h4>
+                <p className="text-[#8A8680] text-[11px] mb-2.5 flex items-center gap-1.5">
+                  <i className="ri-map-pin-2-line text-[9px]"></i>
+                  {featuredEvents[0].location}
+                </p>
+                <p className="text-[#5C5850] text-sm leading-relaxed">
+                  → {featuredEvents[0].value}
+                </p>
+              </div>
+            </div>
+
+            {/* SECONDARY cards — stacked, compact, more textual */}
+            <div className="flex flex-col gap-5">
+              {featuredEvents.slice(1).map((event, index) => (
+                <div
+                  key={index}
+                  className="group note-card rounded-xl overflow-hidden flex flex-row sm:flex-row"
+                >
+                  {/* Smaller side image */}
+                  <div className="w-28 sm:w-36 relative flex-shrink-0 overflow-hidden bg-[#F5F3EF]">
                     <Image
                       src={event.image}
                       alt={event.name}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                     />
-                  )}
-                  {/* Fallback */}
-                  {!event.image && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <i className="ri-image-add-line text-[#E0E0DE] text-4xl"></i>
-                    </div>
-                  )}
-                  {/* Type badge */}
-                  <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[#013B75] text-xs font-medium px-2.5 py-1 rounded-full">
-                    {event.type}
-                  </span>
+                  </div>
+                  {/* Text as field note */}
+                  <div className="p-4 flex flex-col justify-center flex-1 min-w-0">
+                    <span className="text-[#1B4F72] text-[9px] font-semibold uppercase tracking-wider mb-1.5 inline-flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#1B4F72]/40"></span>
+                      {event.type}
+                    </span>
+                    <h4 className="text-[#2C2A26] font-semibold text-sm mb-1 leading-tight">
+                      {event.name}
+                    </h4>
+                    <p className="text-[#8A8680] text-[10px] mb-1.5 flex items-center gap-1">
+                      <i className="ri-map-pin-2-line text-[8px]"></i>
+                      {event.location}
+                    </p>
+                    <p className="text-[#5C5850] text-[11px] leading-relaxed italic">
+                      → {event.value}
+                    </p>
+                  </div>
                 </div>
-                {/* Content */}
-                <div className="p-5">
-                  <h4 className="text-[#1A1A1A] font-semibold text-base mb-1">
-                    {event.name}
-                  </h4>
-                  <p className="text-[#8A8A8A] text-xs mb-2">{event.location}</p>
-                  <p className="text-[#5A5A5A] text-sm leading-relaxed">
-                    {event.value}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* ─── 3. CARRUSEL DE EVENTOS SECUNDARIOS ─── */}
-        <div className="mb-12 sm:mb-16">
-          <div className="flex items-center justify-between mb-5">
-            <h3 className="text-[#1A1A1A] font-semibold text-sm uppercase tracking-wide">
-              Más eventos del ecosistema
-            </h3>
-            <div className="flex gap-1.5">
+        {/* ─── 3. BITÁCORA DEL ECOSISTEMA — Archivo curatorial ─── */}
+        <div className="mb-14 sm:mb-20">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <span className="w-6 h-px bg-[#DDD9D2]"></span>
+              <h3 className="text-[#2C2A26] font-semibold text-xs uppercase tracking-[0.15em]">
+                Bitácora del ecosistema
+              </h3>
+              <span className="text-[#8A8680] text-[10px] italic hidden sm:inline ml-2">— archivo de experiencias</span>
+            </div>
+            {/* Navigation as page-turning controls */}
+            <div className="flex items-center gap-2">
               <button
                 onClick={() => scroll("left")}
-                className="w-8 h-8 rounded-full border border-[#E0E0DE] flex items-center justify-center hover:border-[#013B75] hover:text-[#013B75] transition-colors text-[#5A5A5A] cursor-pointer"
-                aria-label="Anterior"
+                className="w-7 h-7 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#1B4F72] hover:text-[#1B4F72] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
+                aria-label="Página anterior"
               >
-                <i className="ri-arrow-left-s-line"></i>
+                <i className="ri-arrow-left-s-line text-xs"></i>
               </button>
+              <span className="text-[#8A8680] text-[9px]">◆</span>
               <button
                 onClick={() => scroll("right")}
-                className="w-8 h-8 rounded-full border border-[#E0E0DE] flex items-center justify-center hover:border-[#013B75] hover:text-[#013B75] transition-colors text-[#5A5A5A] cursor-pointer"
-                aria-label="Siguiente"
+                className="w-7 h-7 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#1B4F72] hover:text-[#1B4F72] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
+                aria-label="Página siguiente"
               >
-                <i className="ri-arrow-right-s-line"></i>
+                <i className="ri-arrow-right-s-line text-xs"></i>
               </button>
             </div>
           </div>
 
           <div
             ref={carouselRef}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-3 cursor-grab active:cursor-grabbing"
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 cursor-grab active:cursor-grabbing -mx-6 px-6 sm:mx-0 sm:px-0"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
           >
-            {secondaryEvents.map((event, i) => (
-              <div
-                key={i}
-                className="flex-shrink-0 w-[280px] sm:w-[300px] snap-start bg-[#F7F6F2] border border-[#E0E0DE] rounded-xl overflow-hidden hover:border-[#013B75]/20 hover:shadow-sm transition-all duration-200"
-              >
-                {/* Mini image banner */}
-                <div className="h-24 relative overflow-hidden bg-gradient-to-br from-[#013B75]/5 to-[#013B75]/10">
-                  {"image" in event && event.image ? (
-                    <Image
-                      src={event.image}
-                      alt={event.name}
-                      fill
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <i className="ri-image-add-line text-[#E0E0DE] text-2xl"></i>
-                    </div>
-                  )}
-                  <span className="absolute top-2 left-2 bg-white/90 backdrop-blur-sm text-[#013B75] text-[10px] font-medium px-2 py-0.5 rounded-full">
-                    {event.type}
-                  </span>
+            {secondaryEvents.map((event, i) => {
+              // Vary card widths for editorial rhythm
+              const isWide = i % 3 === 0;
+              return (
+                <div
+                  key={i}
+                  className={`flex-shrink-0 snap-start note-card rounded-xl overflow-hidden ${isWide ? "w-[300px] sm:w-[320px]" : "w-[240px] sm:w-[260px]"}`}
+                >
+                  {/* Image — varied heights for rhythm */}
+                  <div className={`relative overflow-hidden bg-[#F5F3EF] ${isWide ? "h-36" : "h-24"}`}>
+                    {"image" in event && event.image ? (
+                      <Image
+                        src={event.image}
+                        alt={event.name}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1B4F72]/5 to-[#1B4F72]/10">
+                        <i className="ri-file-text-line text-[#DDD9D2] text-2xl"></i>
+                      </div>
+                    )}
+                    {/* Type as color-coded sticker by category */}
+                    <span className={`absolute top-2 left-2 text-[9px] font-semibold px-2 py-0.5 rounded uppercase tracking-wide ${
+                      event.type === "Workshop" ? "bg-[#1B4F72]/90 text-white" :
+                      event.type === "Summit" ? "bg-[#C4960A]/90 text-white" :
+                      event.type === "Bootcamp" ? "bg-[#6B4C3B]/85 text-white" :
+                      event.type === "Certificación" ? "bg-[#2D6A4F]/85 text-white" :
+                      "bg-[#FFFDF9]/90 text-[#1B4F72] border border-[#DDD9D2]/50"
+                    }`}>
+                      {event.type}
+                    </span>
+                  </div>
+                  <div className="p-3.5">
+                    <h4 className="text-[#2C2A26] font-medium text-xs leading-tight mb-1.5">
+                      {event.name}
+                    </h4>
+                    <p className="text-[#8A8680] text-[10px] flex items-center gap-1 mb-1.5">
+                      <i className="ri-map-pin-2-line text-[8px]"></i>
+                      {event.location}
+                    </p>
+                    {/* Micro-description for curatorial context */}
+                    {isWide && (
+                      <p className="text-[#5C5850] text-[10px] italic leading-relaxed border-t border-[#DDD9D2]/50 pt-1.5 mt-1">
+                        Experiencia que amplía el alcance del aula
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h4 className="text-[#1A1A1A] font-medium text-sm leading-tight mb-1">
-                    {event.name}
-                  </h4>
-                  <span className="text-[#8A8A8A] text-xs">{event.location}</span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* ─── 4. QUÉ VIVEN LOS ESTUDIANTES ─── */}
-        <div>
-          <h3 className="text-[#1A1A1A] font-semibold text-sm uppercase tracking-wide mb-6">
-            Qué viven los estudiantes
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* ─── 4. OUTCOMES DEL RECORRIDO — Apuntes de observación ─── */}
+        <div className="paper-surface rounded-xl p-6 sm:p-8">
+          {/* Header with editorial annotation */}
+          <div className="flex items-start gap-3 mb-6">
+            <span className="text-[#C4960A] text-lg mt-0.5">✦</span>
+            <div>
+              <h3 className="text-[#2C2A26] font-semibold text-sm mb-0.5">
+                Lo que viven los estudiantes
+              </h3>
+              <p className="text-[#8A8680] text-[10px] italic">
+                Outcomes observados en el recorrido del ecosistema
+              </p>
+            </div>
+          </div>
+
+          {/* Observation notes — staggered, not uniform grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="text-center p-5 rounded-xl border border-[#E0E0DE] bg-[#F7F6F2] hover:border-[#013B75]/15 hover:shadow-sm transition-all"
+                className={`rounded-lg border border-[#DDD9D2]/60 p-3.5 bg-[#FFFDF9] hover:border-[#1B4F72]/15 transition-colors ${
+                  index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
+                }`}
               >
-                <div className="w-10 h-10 rounded-lg bg-[#D9A500]/10 flex items-center justify-center mx-auto mb-3">
-                  <i className={`${benefit.icon} text-[#D9A500] text-lg`}></i>
+                <div className="flex items-start gap-2.5">
+                  <i className={`${benefit.icon} text-[#C4960A] text-sm mt-0.5`}></i>
+                  <div className="min-w-0">
+                    <h4 className="text-[#2C2A26] font-semibold text-[11px] mb-0.5">
+                      {benefit.title}
+                    </h4>
+                    <p className="text-[#5C5850] text-[10px] leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </div>
                 </div>
-                <h4 className="text-[#1A1A1A] font-semibold text-sm mb-1">
-                  {benefit.title}
-                </h4>
-                <p className="text-[#5A5A5A] text-xs leading-relaxed">
-                  {benefit.description}
-                </p>
               </div>
             ))}
           </div>
+
+          {/* Small handwritten-style annotation at bottom */}
+          <p className="text-[#8A8680] text-[10px] italic mt-5 text-right">
+            — Notas del ecosistema, semestre 2025-2
+          </p>
         </div>
 
       </div>

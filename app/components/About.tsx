@@ -67,116 +67,150 @@ export default function About() {
   return (
     <section id="sobre-mi" className="py-16 sm:py-24">
       <div className="max-w-[1120px] mx-auto px-6 sm:px-8">
-        {/* Section header */}
+
+        {/* Section header — editorial */}
         <div className="mb-10">
           <h2
-            className="text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] mb-3"
+            className="text-3xl sm:text-4xl md:text-5xl text-[#2C2A26] mb-3"
             style={{ fontFamily: "'Instrument Serif', serif", lineHeight: "1.15" }}
           >
-            Sobre el profesor
+            Sobre el <span className="underline-hand">profesor</span>
           </h2>
-          <p className="text-[#5A5A5A] text-base sm:text-lg max-w-[65ch]">
+          <p className="text-[#5C5850] text-sm sm:text-base max-w-[60ch] leading-relaxed">
             Docencia, desarrollo de software e inteligencia artificial aplicadas a la formación de talento tecnológico.
           </p>
         </div>
 
-        {/* Main card surface */}
-        <div className="bg-white border border-[#E0E0DE] rounded-2xl shadow-sm p-4 sm:p-6 md:p-8 lg:p-10">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-12">
-            {/* ─── LEFT COLUMN: Identity ─── */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Identity block */}
+        {/* ═══ HOJA DE PRESENTACIÓN — Dossier personal ═══ */}
+        <div className="paper-surface rounded-2xl p-5 sm:p-7 md:p-9 lg:p-10 bg-ruled relative">
+          {/* Tape detail at top center */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-3 bg-[#C8C3AA]/30 rounded-b-sm"></div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+
+            {/* ─── LEFT: Ficha personal ─── */}
+            <div className="lg:col-span-2 space-y-5">
+              {/* Monogram plate — replaces generic icon */}
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-                <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#013B75] to-[#1a5296] flex items-center justify-center mb-4 shadow-md">
-                  <i className="ri-user-line text-white text-4xl"></i>
+                <div className="w-20 h-20 rounded-xl border-2 border-[#2C2A26]/10 bg-[#FFFDF9] flex items-center justify-center mb-4 relative">
+                  <span
+                    className="text-[#2C2A26] text-2xl font-bold tracking-tight"
+                    style={{ fontFamily: "'Instrument Serif', serif" }}
+                  >
+                    DRM
+                  </span>
+                  {/* Small stamp accent */}
+                  <span className="absolute -bottom-1.5 -right-1.5 bg-[#C4960A]/15 text-[#C4960A] text-[7px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider border border-[#C4960A]/20">
+                    UNAM
+                  </span>
                 </div>
-                <h3 className="text-[#1A1A1A] font-semibold text-xl">Diego Romero Mora</h3>
-                <p className="text-[#5A5A5A] text-sm mt-1">Profesor · Desarrollador · Mentor</p>
-                <p className="text-[#013B75] text-sm font-medium mt-1">
-                  Profesor de Asignatura en FES Acatlán, UNAM
+                <h3
+                  className="text-[#2C2A26] text-xl sm:text-2xl"
+                  style={{ fontFamily: "'Instrument Serif', serif" }}
+                >
+                  Diego Romero Mora
+                </h3>
+                <p className="text-[#5C5850] text-sm mt-1">Profesor · Desarrollador · Mentor</p>
+                <p className="text-[#1B4F72] text-xs font-medium mt-2 inline-flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-[#1B4F72]/50"></span>
+                  Profesor de Asignatura en FES Acatlán
                 </p>
               </div>
 
-              {/* LinkedIn CTA */}
-              <a
-                href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#013B75] text-white font-medium px-5 py-2.5 rounded-lg hover:bg-[#012a57] transition-all duration-200 hover:shadow-md text-sm min-h-[44px] w-full sm:w-auto justify-center lg:justify-start"
-              >
-                <i className="ri-linkedin-box-fill text-lg"></i>
-                Ver más en LinkedIn
-                <i className="ri-arrow-right-up-line text-sm"></i>
-              </a>
-
-              {/* Metric chips */}
-              <div className="flex flex-wrap gap-2">
+              {/* Metric marks — editorial chips */}
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                 {[
-                  "4+ años",
-                  "1 curso insignia",
+                  "4+ años docencia",
                   "Cloud · IA · Web",
                 ].map((chip) => (
                   <span
                     key={chip}
-                    className="bg-[#013B75]/5 text-[#013B75] text-xs font-medium px-3 py-1.5 rounded-full border border-[#013B75]/10"
+                    className="text-[#5C5850] text-[10px] font-medium px-2.5 py-1 rounded border border-[#DDD9D2] bg-[#FFFDF9]"
                   >
                     {chip}
                   </span>
                 ))}
               </div>
+
+              {/* LinkedIn — discrete, editorial link */}
+              <a
+                href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#1B4F72] text-xs font-medium border border-[#1B4F72]/20 px-4 py-2 rounded-lg hover:border-[#1B4F72]/40 hover:bg-[#1B4F72]/3 transition-all duration-200 min-h-[40px]"
+              >
+                <i className="ri-linkedin-box-fill text-sm"></i>
+                Ver perfil en LinkedIn
+                <i className="ri-arrow-right-up-line text-[10px] opacity-60"></i>
+              </a>
             </div>
 
-            {/* ─── RIGHT COLUMN: Evidence ─── */}
-            <div className="lg:col-span-3 space-y-6">
-              {/* Featured publication */}
+            {/* ─── RIGHT: Evidencia editorial ─── */}
+            <div className="lg:col-span-3 space-y-7">
+
+              {/* PUBLICACIÓN DESTACADA — Elemento más expresivo */}
               <div>
-                <h4 className="text-[#8A8A8A] text-xs font-semibold uppercase tracking-wider mb-3">
-                  Publicación destacada
-                </h4>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-[#C4960A] text-xs">✦</span>
+                  <h4 className="text-[#8A8680] text-[10px] font-semibold uppercase tracking-[0.15em]">
+                    Publicación destacada
+                  </h4>
+                </div>
                 <a
                   href="https://heyzine.com/flip-book/962233e534.html#page/12"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-[#F7F6F2] border border-[#E0E0DE] rounded-xl p-4 sm:p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer block"
+                  className="group block relative rounded-xl overflow-hidden border border-[#DDD9D2] bg-gradient-to-br from-[#FFFDF9] to-[#F8F6F1] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
                 >
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-[#013B75]/10 flex items-center justify-center flex-shrink-0">
-                      <i className="ri-article-line text-[#013B75] text-lg sm:text-xl"></i>
+                  {/* Tape accent on top-left */}
+                  <div className="absolute top-0 left-6 w-10 h-2.5 bg-[#C8C3AA]/35 rounded-b-sm z-10"></div>
+
+                  <div className="p-5 sm:p-6">
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      {/* Publication icon — booklet feel */}
+                      <div className="w-11 h-14 rounded border border-[#DDD9D2] bg-[#FFFDF9] flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <i className="ri-book-open-line text-[#1B4F72] text-lg"></i>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h5 className="text-[#2C2A26] font-semibold text-sm leading-tight mb-1.5 group-hover:text-[#1B4F72] transition-colors break-words">
+                          HOUSTON, TENEMOS UN §PROBLEMA? ARQUITECTURAS DE SOFTWARE QUE NO PUEDEN FALLAR
+                        </h5>
+                        <p className="text-[#8A8680] text-[10px] mb-2.5 flex items-center gap-2">
+                          <span>21 oct. 2025</span>
+                          <span className="w-3 h-px bg-[#DDD9D2]"></span>
+                          <span className="italic">Artículo publicado</span>
+                        </p>
+                        <p className="text-[#5C5850] text-xs leading-relaxed">
+                          Análisis de arquitecturas de software resilientes, patrones de diseño para sistemas de misión crítica y lecciones de ingeniería a escala.
+                        </p>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h5 className="text-[#1A1A1A] font-semibold text-xs sm:text-sm leading-tight mb-1 group-hover:text-[#013B75] transition-colors break-words">
-                        HOUSTON, TENEMOS UN §PROBLEMA? ARQUITECTURAS DE SOFTWARE QUE NO PUEDEN FALLAR
-                      </h5>
-                      <p className="text-[#8A8A8A] text-xs mb-2">21 oct. 2025</p>
-                      <p className="text-[#5A5A5A] text-xs leading-relaxed line-clamp-2">
-                        Análisis de arquitecturas de software resilientes, patrones de diseño para sistemas de misión crítica y lecciones de ingeniería a escala.
-                      </p>
+                    <div className="mt-4 pt-3 border-t border-[#DDD9D2]/60 flex items-center justify-between">
+                      <span className="text-[#1B4F72] text-[11px] font-medium group-hover:underline inline-flex items-center gap-1">
+                        Leer artículo completo
+                        <i className="ri-arrow-right-up-line text-[10px]"></i>
+                      </span>
+                      <span className="text-[#8A8680] text-[9px] italic hidden sm:inline">revista digital</span>
                     </div>
-                  </div>
-                  <div className="mt-3 pt-3 border-t border-[#E0E0DE] flex items-center justify-between">
-                    <span className="text-[#013B75] text-xs font-medium group-hover:underline">
-                      Leer más
-                    </span>
-                    <i className="ri-arrow-right-up-line text-[#013B75] text-sm"></i>
                   </div>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[#8A8A8A] text-xs mt-2 hover:text-[#013B75] transition-colors"
+                  className="inline-flex items-center gap-1 text-[#8A8680] text-[10px] mt-2 ink-link"
                 >
-                  Más publicaciones y artículos en LinkedIn
-                  <i className="ri-external-link-line"></i>
+                  Más publicaciones en LinkedIn
+                  <i className="ri-external-link-line text-[9px]"></i>
                 </a>
               </div>
 
-              {/* Career summary */}
+              {/* RESUMEN PROFESIONAL — Apuntes curatoriales */}
               <div>
-                <h4 className="text-[#8A8A8A] text-xs font-semibold uppercase tracking-wider mb-3">
-                  Resumen profesional
+                <h4 className="text-[#8A8680] text-[10px] font-semibold uppercase tracking-[0.15em] mb-4">
+                  Trayectoria profesional
                 </h4>
-                <div className="space-y-3">
+                <div className="space-y-4 margin-line">
                   {[
                     {
                       role: "Profesor de Asignatura",
@@ -195,12 +229,14 @@ export default function About() {
                     },
                   ].map((exp, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#D9A500] mt-2 flex-shrink-0"></div>
+                      {/* Editorial asterisk instead of plain dot */}
+                      <span className="text-[#C4960A] text-[10px] mt-1 flex-shrink-0 leading-none">✳</span>
                       <div>
-                        <p className="text-[#1A1A1A] text-sm font-medium">
-                          {exp.role} <span className="text-[#8A8A8A] font-normal">— {exp.place}</span>
+                        <p className="text-[#2C2A26] text-sm font-medium leading-snug">
+                          {exp.role}
+                          <span className="text-[#8A8680] font-normal text-xs"> — {exp.place}</span>
                         </p>
-                        <p className="text-[#5A5A5A] text-xs">{exp.detail}</p>
+                        <p className="text-[#5C5850] text-[11px] leading-relaxed mt-0.5">{exp.detail}</p>
                       </div>
                     </div>
                   ))}
@@ -209,42 +245,47 @@ export default function About() {
                   href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[#8A8A8A] text-xs mt-3 hover:text-[#013B75] transition-colors"
+                  className="inline-flex items-center gap-1 text-[#8A8680] text-[10px] mt-3 ink-link"
                 >
                   Ver trayectoria completa en LinkedIn
-                  <i className="ri-external-link-line"></i>
+                  <i className="ri-external-link-line text-[9px]"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* ─── FULL WIDTH: Credentials carousel ─── */}
-          <div className="mt-8 pt-8 border-t border-[#E0E0DE]">
-            <div className="flex items-center justify-between mb-3">
-              <h4 className="text-[#8A8A8A] text-xs font-semibold uppercase tracking-wider">
-                Credenciales
-              </h4>
-              <div className="flex gap-1">
+          {/* ─── CREDENCIALES — Fichas archivadas ─── */}
+          <div className="mt-9 pt-7 border-t border-[#DDD9D2]/70">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <h4 className="text-[#8A8680] text-[10px] font-semibold uppercase tracking-[0.15em]">
+                  Credenciales seleccionadas
+                </h4>
+                <span className="text-[#8A8680] text-[9px] italic hidden sm:inline">— archivo de certificaciones</span>
+              </div>
+              {/* Page-turn navigation */}
+              <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => scroll("left")}
-                  className="w-7 h-7 rounded-full border border-[#E0E0DE] flex items-center justify-center hover:border-[#013B75] hover:text-[#013B75] transition-colors text-[#5A5A5A] cursor-pointer"
+                  className="w-6 h-6 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#1B4F72] hover:text-[#1B4F72] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
                   aria-label="Anterior"
                 >
-                  <i className="ri-arrow-left-s-line text-sm"></i>
+                  <i className="ri-arrow-left-s-line text-xs"></i>
                 </button>
+                <span className="text-[#DDD9D2] text-[8px]">◆</span>
                 <button
                   onClick={() => scroll("right")}
-                  className="w-7 h-7 rounded-full border border-[#E0E0DE] flex items-center justify-center hover:border-[#013B75] hover:text-[#013B75] transition-colors text-[#5A5A5A] cursor-pointer"
+                  className="w-6 h-6 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#1B4F72] hover:text-[#1B4F72] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
                   aria-label="Siguiente"
                 >
-                  <i className="ri-arrow-right-s-line text-sm"></i>
+                  <i className="ri-arrow-right-s-line text-xs"></i>
                 </button>
               </div>
             </div>
 
             <div
               ref={carouselRef}
-              className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-2 cursor-grab active:cursor-grabbing -mx-4 px-4 sm:mx-0 sm:px-0"
+              className="flex gap-3 overflow-x-auto overflow-y-visible snap-x snap-mandatory pt-2 pb-2 cursor-grab active:cursor-grabbing -mx-5 px-5 sm:mx-0 sm:px-0"
               style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
               onMouseDown={handleMouseDown}
               onMouseMove={handleMouseMove}
@@ -254,24 +295,24 @@ export default function About() {
               {credentials.map((cred, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 w-[240px] snap-start bg-[#F7F6F2] border border-[#E0E0DE] rounded-xl p-4 hover:border-[#013B75]/20 hover:shadow-sm transition-all duration-200"
+                  className="flex-shrink-0 w-[220px] snap-start rounded-lg border border-[#DDD9D2] bg-[#FFFDF9] p-3.5 hover:border-[#1B4F72]/20 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200"
                 >
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-7 h-7 rounded bg-[#013B75]/10 flex items-center justify-center">
-                      <i className={`text-[#013B75] text-xs ${
-                        cred.issuer === "AWS" ? "ri-cloud-line" :
-                        cred.issuer === "Google" ? "ri-google-line" :
-                        cred.issuer === "Oracle" ? "ri-database-2-line" :
-                        cred.issuer === "IBM" ? "ri-brain-line" :
-                        "ri-award-line"
-                      }`}></i>
-                    </div>
-                    <span className="text-[#8A8A8A] text-xs font-medium">{cred.issuer}</span>
+                  {/* Issuer as colored top-bar accent */}
+                  <div className="flex items-center gap-2 mb-2.5 pb-2 border-b border-[#DDD9D2]/50">
+                    <i className={`text-[#1B4F72] text-xs ${
+                      cred.issuer === "AWS" ? "ri-cloud-line" :
+                      cred.issuer === "Google" ? "ri-google-line" :
+                      cred.issuer === "Oracle" ? "ri-database-2-line" :
+                      cred.issuer === "IBM" ? "ri-brain-line" :
+                      "ri-award-line"
+                    }`}></i>
+                    <span className="text-[#1B4F72] text-[10px] font-semibold uppercase tracking-wide">{cred.issuer}</span>
                   </div>
-                  <h5 className="text-[#1A1A1A] text-xs font-semibold leading-tight mb-1.5 line-clamp-2">
+                  <h5 className="text-[#2C2A26] text-[11px] font-semibold leading-tight mb-2 line-clamp-2">
                     {cred.name}
                   </h5>
-                  <p className="text-[#8A8A8A] text-[10px]">
+                  <p className="text-[#8A8680] text-[9px] flex items-center gap-1">
+                    <i className="ri-calendar-line text-[8px]"></i>
                     {cred.issued}{cred.expires ? ` · Exp. ${cred.expires}` : ""}
                   </p>
                 </div>
@@ -282,10 +323,10 @@ export default function About() {
               href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[#8A8A8A] text-xs mt-2 hover:text-[#013B75] transition-colors"
+              className="inline-flex items-center gap-1 text-[#8A8680] text-[10px] mt-3 ink-link"
             >
               Más credenciales en LinkedIn
-              <i className="ri-external-link-line"></i>
+              <i className="ri-external-link-line text-[9px]"></i>
             </a>
           </div>
         </div>

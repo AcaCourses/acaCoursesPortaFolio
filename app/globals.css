@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F7F6F2;
-  --foreground: #1A1A1A;
-  --surface: #FFFFFF;
-  --surface-alt: #F5F5F3;
-  --text-primary: #1A1A1A;
-  --text-secondary: #5A5A5A;
-  --accent-primary: #013B75;
-  --accent-secondary: #D9A500;
-  --border: #E0E0DE;
+  --background: #FAF8F4;
+  --foreground: #2C2A26;
+  --surface: #FFFDF9;
+  --surface-alt: #F5F3EF;
+  --text-primary: #2C2A26;
+  --text-secondary: #5C5850;
+  --accent-primary: #1B4F72;
+  --accent-secondary: #C4960A;
+  --border: #DDD9D2;
   --success: #3E7A22;
-  --neutral: #8A8A8A;
+  --neutral: #8A8680;
+  --paper: #FFFDF9;
+  --ink: #2C2A26;
 }
 
 @theme inline {
@@ -33,53 +35,194 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Fade-up animation */
+/* ═══════════════════════════════════════════
+   ANIMATION - Fade reveals (opacity only)
+   ═══════════════════════════════════════════ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-up {
-  animation: fadeUp 0.6s ease-out forwards;
+  animation: fadeUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   opacity: 0;
 }
 
 .animate-fade-up-delay-1 {
-  animation: fadeUp 0.6s ease-out 0.1s forwards;
+  animation: fadeUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.08s forwards;
   opacity: 0;
 }
 
 .animate-fade-up-delay-2 {
-  animation: fadeUp 0.6s ease-out 0.2s forwards;
+  animation: fadeUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.16s forwards;
   opacity: 0;
 }
 
 .animate-fade-up-delay-3 {
-  animation: fadeUp 0.6s ease-out 0.3s forwards;
+  animation: fadeUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.24s forwards;
   opacity: 0;
 }
 
 .animate-fade-up-delay-4 {
-  animation: fadeUp 0.6s ease-out 0.4s forwards;
+  animation: fadeUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.32s forwards;
   opacity: 0;
 }
 
-/* Counter animation helper */
-@keyframes countUp {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
-}
+/* ═══════════════════════════════════════════
+   SURFACES - Paper layers
+   ═══════════════════════════════════════════ */
 
-/* Subtle grid pattern */
+/* Subtle grid - the desk surface (very quiet) */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(224, 224, 222, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(224, 224, 222, 0.3) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(180, 175, 165, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 175, 165, 0.07) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* Ruled paper lines - focal sections only */
+.bg-ruled {
+  background-image:
+    repeating-linear-gradient(
+      transparent,
+      transparent 27px,
+      rgba(160, 185, 210, 0.12) 27px,
+      rgba(160, 185, 210, 0.12) 28px
+    );
+}
+
+/* Paper sheet - main card surfaces */
+.paper-surface {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 1px 2px rgba(44, 42, 38, 0.03),
+    0 4px 12px rgba(44, 42, 38, 0.02);
+}
+
+/* Note card - archival/index card feel */
+.note-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 1px 3px rgba(44, 42, 38, 0.04),
+    0 6px 16px rgba(44, 42, 38, 0.02);
+  transition: transform 180ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 180ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.note-card:hover {
+  transform: translateY(-2px) rotate(-0.3deg);
+  box-shadow:
+    0 4px 12px rgba(44, 42, 38, 0.06),
+    0 12px 32px rgba(44, 42, 38, 0.03);
+}
+
+/* ═══════════════════════════════════════════
+   ACCENTS - Handwritten / editorial marks
+   ═══════════════════════════════════════════ */
+
+/* Marker underline - use on 2-3 key words max */
+.underline-hand {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-hand::after {
+  content: "";
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  bottom: 0;
+  height: 8px;
+  background: rgba(196, 150, 10, 0.18);
+  border-radius: 4px;
+  transform: rotate(-0.4deg) skewX(-1deg);
+  z-index: -1;
+}
+
+/* Red margin line - notebook left edge */
+.margin-line {
+  border-left: 2px solid rgba(180, 80, 70, 0.12);
+  padding-left: 1.25rem;
+}
+
+/* Tape detail - translucent adhesive strip */
+.tape-detail {
+  position: relative;
+}
+
+.tape-detail::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 60px;
+  height: 14px;
+  background: rgba(200, 195, 170, 0.35);
+  border-radius: 1px;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════
+   LINKS - Ink underline animation
+   ═══════════════════════════════════════════ */
+.ink-link {
+  position: relative;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.ink-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  border-radius: 1px;
+  transition: width 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ink-link:hover::after {
+  width: 100%;
+}
+
+.ink-link:hover {
+  color: var(--accent-primary);
+}
+
+/* ═══════════════════════════════════════════
+   BUTTONS - Clean on paper
+   ═══════════════════════════════════════════ */
+.btn-primary {
+  transition: transform 180ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 180ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background-color 150ms ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(27, 79, 114, 0.15);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(27, 79, 114, 0.1);
+}
+
+/* ═══════════════════════════════════════════
+   NAVBAR - Paper on glass
+   ═══════════════════════════════════════════ */
+.nav-paper {
+  background: rgba(250, 248, 244, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(221, 217, 210, 0.6);
 }

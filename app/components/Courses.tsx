@@ -39,7 +39,7 @@ export default function Courses() {
               className="text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] mb-3"
               style={{ fontFamily: "'Instrument Serif', serif", lineHeight: "1.15" }}
             >
-              Cursos y experiencias de aprendizaje
+              Cursos y <span className="underline-hand">experiencias</span> de aprendizaje
             </h2>
             <p className="text-[#5A5A5A] text-base sm:text-lg max-w-[65ch]">
               Cada curso combina teoría, práctica y herramientas de la industria para que los estudiantes construyan proyectos reales, aprendan a colaborar y desarrollen un portafolio profesional.
@@ -56,7 +56,7 @@ export default function Courses() {
           {courses.map((course, i) => (
             <div
               key={i}
-              className="bg-white border border-[#E0E0DE] rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              className="note-card rounded-2xl overflow-hidden"
             >
               {/* Iframe preview */}
               <div className="relative w-full aspect-[16/10] bg-[#f0f0f0] overflow-hidden border-b border-[#E0E0DE]">
@@ -124,7 +124,7 @@ export default function Courses() {
           {upcomingCourses.map((course, i) => (
             <div
               key={i}
-              className="bg-white border border-[#E0E0DE] rounded-2xl p-6 hover:border-[#013B75]/15 hover:shadow-sm transition-all duration-200"
+              className="note-card rounded-2xl p-6"
             >
               <span className="inline-block bg-[#D9A500]/10 text-[#D9A500] text-[10px] font-semibold px-2.5 py-1 rounded-full border border-[#D9A500]/20 mb-4">
                 {course.status}

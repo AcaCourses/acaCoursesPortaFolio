@@ -32,7 +32,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#F7F6F2] bg-grid">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#FAF8F4] bg-grid">{children}</body>
     </html>
   );
 }
