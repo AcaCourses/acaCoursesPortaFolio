@@ -113,7 +113,6 @@ export default function About() {
               <div className="flex flex-wrap gap-2">
                 {[
                   "4+ años",
-                  "100+ alumnos",
                   "1 curso insignia",
                   "Cloud · IA · Web",
                 ].map((chip) => (
