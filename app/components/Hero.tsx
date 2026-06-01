@@ -60,7 +60,7 @@ export default function Hero() {
                   Senior AI Automation Engineer – Teradata
                 </p>
                 <p className="text-[#8A8A8A] text-xs">
-                  Egresado MAC 2022
+                  Egresado MAC · Maestría en Ciencia de Datos
                 </p>
               </div>
 

@@ -109,11 +109,6 @@ export default function About() {
                 <i className="ri-arrow-right-up-line text-sm"></i>
               </a>
 
-              {/* Summary paragraph */}
-              <p className="text-[#5A5A5A] text-sm leading-relaxed max-w-[55ch]">
-                Diego Romero Mora es profesor de la FES Acatlán, egresado de Matemáticas Aplicadas y Computación, con experiencia en desarrollo web, cloud computing, automatización e inteligencia artificial. Su enfoque docente combina proyectos reales, herramientas de la industria y formación orientada a portafolio profesional.
-              </p>
-
               {/* Metric chips */}
               <div className="flex flex-wrap gap-2">
                 {[
