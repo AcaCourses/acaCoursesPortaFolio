@@ -207,7 +207,7 @@ export default function StudentEvidence() {
                   fill
                   className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
                 />
-                <span className="absolute top-3 left-3 bg-[#1B4F72] text-white text-[10px] font-semibold px-2.5 py-1 rounded">
+                <span className="absolute top-3 left-3 bg-[#2B4C5E] text-white text-[10px] font-semibold px-2.5 py-1 rounded">
                   {featuredEvents[0].type}
                 </span>
               </div>
@@ -243,8 +243,8 @@ export default function StudentEvidence() {
                   </div>
                   {/* Text as field note */}
                   <div className="p-4 flex flex-col justify-center flex-1 min-w-0">
-                    <span className="text-[#1B4F72] text-[9px] font-semibold uppercase tracking-wider mb-1.5 inline-flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#1B4F72]/40"></span>
+                    <span className="text-[#2B4C5E] text-[9px] font-semibold uppercase tracking-wider mb-1.5 inline-flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#2B4C5E]/40"></span>
                       {event.type}
                     </span>
                     <h4 className="text-[#2C2A26] font-semibold text-sm mb-1 leading-tight">
@@ -278,7 +278,7 @@ export default function StudentEvidence() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => scroll("left")}
-                className="w-7 h-7 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#1B4F72] hover:text-[#1B4F72] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
+                className="w-7 h-7 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#2B4C5E] hover:text-[#2B4C5E] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
                 aria-label="Página anterior"
               >
                 <i className="ri-arrow-left-s-line text-xs"></i>
@@ -286,7 +286,7 @@ export default function StudentEvidence() {
               <span className="text-[#8A8680] text-[9px]">◆</span>
               <button
                 onClick={() => scroll("right")}
-                className="w-7 h-7 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#1B4F72] hover:text-[#1B4F72] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
+                className="w-7 h-7 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#2B4C5E] hover:text-[#2B4C5E] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
                 aria-label="Página siguiente"
               >
                 <i className="ri-arrow-right-s-line text-xs"></i>
@@ -321,17 +321,17 @@ export default function StudentEvidence() {
                         className="object-cover"
                       />
                     ) : (
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1B4F72]/5 to-[#1B4F72]/10">
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#2B4C5E]/5 to-[#2B4C5E]/10">
                         <i className="ri-file-text-line text-[#DDD9D2] text-2xl"></i>
                       </div>
                     )}
                     {/* Type as color-coded sticker by category */}
                     <span className={`absolute top-2 left-2 text-[9px] font-semibold px-2 py-0.5 rounded uppercase tracking-wide ${
-                      event.type === "Workshop" ? "bg-[#1B4F72]/90 text-white" :
+                      event.type === "Workshop" ? "bg-[#2B4C5E]/90 text-white" :
                       event.type === "Summit" ? "bg-[#C4960A]/90 text-white" :
                       event.type === "Bootcamp" ? "bg-[#6B4C3B]/85 text-white" :
                       event.type === "Certificación" ? "bg-[#2D6A4F]/85 text-white" :
-                      "bg-[#FFFDF9]/90 text-[#1B4F72] border border-[#DDD9D2]/50"
+                      "bg-[#FFFDF9]/90 text-[#2B4C5E] border border-[#DDD9D2]/50"
                     }`}>
                       {event.type}
                     </span>
@@ -377,7 +377,7 @@ export default function StudentEvidence() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className={`rounded-lg border border-[#DDD9D2]/60 p-3.5 bg-[#FFFDF9] hover:border-[#1B4F72]/15 transition-colors ${
+                className={`rounded-lg border border-[#DDD9D2]/60 p-3.5 bg-[#FFFDF9] hover:border-[#2B4C5E]/15 transition-colors ${
                   index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
                 }`}
               >

@@ -135,8 +135,8 @@ export default function Certifications() {
               onClick={() => setActiveFilter(filter)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${
                 activeFilter === filter
-                  ? "bg-[#013B75] text-white"
-                  : "bg-white border border-[#E0E0DE] text-[#5A5A5A] hover:border-[#013B75]/30 hover:text-[#013B75]"
+                  ? "bg-[#2B4C5E] text-white"
+                  : "bg-white border border-[#E0E0DE] text-[#5A5A5A] hover:border-[#2B4C5E]/30 hover:text-[#2B4C5E]"
               }`}
             >
               {filter}
@@ -157,11 +157,11 @@ export default function Certifications() {
           {filtered.map((cred, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-[260px] sm:w-[280px] snap-start bg-white border border-[#E0E0DE] rounded-xl p-5 hover:border-[#013B75]/20 hover:shadow-sm transition-all duration-200"
+              className="flex-shrink-0 w-[260px] sm:w-[280px] snap-start bg-white border border-[#E0E0DE] rounded-xl p-5 hover:border-[#2B4C5E]/20 hover:shadow-sm transition-all duration-200"
             >
               {/* Issuer icon */}
               <div className="w-10 h-10 rounded-lg bg-[#F7F6F2] flex items-center justify-center mb-3">
-                <i className={`text-[#013B75] text-lg ${
+                <i className={`text-[#2B4C5E] text-lg ${
                   cred.issuer.includes("Google") ? "ri-google-line" :
                   cred.issuer.includes("Oracle") ? "ri-database-2-line" :
                   cred.issuer.includes("Amazon") || cred.issuer.includes("AWS") ? "ri-cloud-line" :

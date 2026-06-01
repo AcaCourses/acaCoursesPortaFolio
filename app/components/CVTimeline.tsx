@@ -115,14 +115,14 @@ export default function CVTimeline() {
               <div key={index} className="relative pl-12 sm:pl-16">
                 {/* Dot */}
                 <div className={`absolute left-2.5 sm:left-4.5 top-6 w-3 h-3 rounded-full border-2 ${
-                  index === 0 ? "bg-[#013B75] border-[#013B75]" : "bg-white border-[#E0E0DE]"
+                  index === 0 ? "bg-[#2B4C5E] border-[#2B4C5E]" : "bg-white border-[#E0E0DE]"
                 }`}></div>
 
                 <div
                   className={`bg-white border rounded-xl p-5 sm:p-6 cursor-pointer transition-all duration-200 ${
                     expandedIndex === index
-                      ? "border-[#013B75]/20 shadow-sm"
-                      : "border-[#E0E0DE] hover:border-[#013B75]/10 hover:shadow-sm"
+                      ? "border-[#2B4C5E]/20 shadow-sm"
+                      : "border-[#E0E0DE] hover:border-[#2B4C5E]/10 hover:shadow-sm"
                   }`}
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                 >

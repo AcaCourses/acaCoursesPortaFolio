@@ -45,7 +45,7 @@ export default function Navbar() {
             onClick={() => scrollToSection("inicio")}
             className="font-semibold text-[#1A1A1A] text-sm tracking-tight cursor-pointer"
           >
-            <span className="text-[#013B75]">DRM</span>
+            <span className="text-[#2B4C5E]">DRM</span>
             <span className="hidden sm:inline text-[#5A5A5A] font-normal ml-2">
               Portafolio Docente
             </span>
@@ -57,7 +57,7 @@ export default function Navbar() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-[#5A5A5A] hover:text-[#013B75] transition-colors text-sm font-medium cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#013B75] rounded"
+                className="text-[#5A5A5A] hover:text-[#2B4C5E] transition-colors text-sm font-medium cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2B4C5E] rounded"
               >
                 {link.label}
               </button>
@@ -84,7 +84,7 @@ export default function Navbar() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-left text-[#1A1A1A] text-lg font-medium py-3 px-4 rounded-xl hover:bg-[#013B75]/5 active:bg-[#013B75]/10 transition-colors cursor-pointer min-h-[44px]"
+                className="text-left text-[#1A1A1A] text-lg font-medium py-3 px-4 rounded-xl hover:bg-[#2B4C5E]/5 active:bg-[#2B4C5E]/10 transition-colors cursor-pointer min-h-[44px]"
               >
                 {link.label}
               </button>

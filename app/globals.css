@@ -7,7 +7,7 @@
   --surface-alt: #F5F3EF;
   --text-primary: #2C2A26;
   --text-secondary: #5C5850;
-  --accent-primary: #1B4F72;
+  --accent-primary: #2B4C5E;
   --accent-secondary: #C4960A;
   --border: #DDD9D2;
   --success: #3E7A22;
@@ -74,25 +74,62 @@ html {
 }
 
 /* ═══════════════════════════════════════════
+   SCROLL REVEALS - opacity & clip-path only
+   ═══════════════════════════════════════════ */
+
+/* Fade — simple opacity */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-fade.revealed {
+  opacity: 1;
+}
+
+/* Clip — reveals like a page sliding open horizontally */
+.reveal-clip {
+  opacity: 0;
+  clip-path: inset(8% 4% 8% 4%);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              clip-path 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-clip.revealed {
+  opacity: 1;
+  clip-path: none;
+}
+
+/* Clip-up — reveals from bottom edge, good for editorial blocks */
+.reveal-clip-up {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              clip-path 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-clip-up.revealed {
+  opacity: 1;
+  clip-path: none;
+}
+
+/* ═══════════════════════════════════════════
    SURFACES - Paper layers
    ═══════════════════════════════════════════ */
 
-/* Subtle grid - the desk surface (very quiet) */
+/* Subtle grid - the desk surface (barely visible) */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(180, 175, 165, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(180, 175, 165, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(180, 175, 165, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(180, 175, 165, 0.02) 1px, transparent 1px);
   background-size: 52px 52px;
 }
 
-/* Ruled paper lines - focal sections only */
+/* Ruled paper lines - very faint horizontal only */
 .bg-ruled {
   background-image:
     repeating-linear-gradient(
       transparent,
-      transparent 27px,
-      rgba(160, 185, 210, 0.12) 27px,
-      rgba(160, 185, 210, 0.12) 28px
+      transparent 28px,
+      rgba(160, 175, 190, 0.06) 28px,
+      rgba(160, 175, 190, 0.06) 29px
     );
 }
 
@@ -113,14 +150,22 @@ html {
     0 1px 3px rgba(44, 42, 38, 0.04),
     0 6px 16px rgba(44, 42, 38, 0.02);
   transition: transform 180ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 180ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+              box-shadow 180ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 180ms ease;
 }
 
 .note-card:hover {
   transform: translateY(-2px) rotate(-0.3deg);
+  border-color: var(--border);
   box-shadow:
     0 4px 12px rgba(44, 42, 38, 0.06),
     0 12px 32px rgba(44, 42, 38, 0.03);
+}
+
+/* Ensure reveal wrappers don't clip card hovers */
+.reveal-clip,
+.reveal-clip-up {
+  overflow: visible;
 }
 
 /* ═══════════════════════════════════════════

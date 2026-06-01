@@ -16,7 +16,7 @@ export default function Contact() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:923475@pcpuma.acatlan.unam.mx"
-              className="inline-flex items-center gap-2 bg-[#013B75] text-white font-medium px-6 py-3 rounded-lg hover:bg-[#012a57] transition-colors text-sm min-h-[44px]"
+              className="inline-flex items-center gap-2 bg-[#2B4C5E] text-white font-medium px-6 py-3 rounded-lg hover:bg-[#1F3A48] transition-colors text-sm min-h-[44px]"
             >
               <i className="ri-mail-line"></i>
               923475@pcpuma.acatlan.unam.mx
@@ -25,7 +25,7 @@ export default function Contact() {
               href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-[#E0E0DE] text-[#1A1A1A] font-medium px-6 py-3 rounded-lg hover:border-[#013B75] hover:text-[#013B75] transition-colors text-sm min-h-[44px]"
+              className="inline-flex items-center gap-2 border border-[#E0E0DE] text-[#1A1A1A] font-medium px-6 py-3 rounded-lg hover:border-[#2B4C5E] hover:text-[#2B4C5E] transition-colors text-sm min-h-[44px]"
             >
               <i className="ri-linkedin-box-line"></i>
               Diego Romero Mora

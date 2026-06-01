@@ -111,8 +111,8 @@ export default function About() {
                   Diego Romero Mora
                 </h3>
                 <p className="text-[#5C5850] text-sm mt-1">Profesor · Desarrollador · Mentor</p>
-                <p className="text-[#1B4F72] text-xs font-medium mt-2 inline-flex items-center gap-1.5">
-                  <span className="w-1 h-1 rounded-full bg-[#1B4F72]/50"></span>
+                <p className="text-[#2B4C5E] text-xs font-medium mt-2 inline-flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-[#2B4C5E]/50"></span>
                   Profesor de Asignatura en FES Acatlán
                 </p>
               </div>
@@ -137,7 +137,7 @@ export default function About() {
                 href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[#1B4F72] text-xs font-medium border border-[#1B4F72]/20 px-4 py-2 rounded-lg hover:border-[#1B4F72]/40 hover:bg-[#1B4F72]/3 transition-all duration-200 min-h-[40px]"
+                className="inline-flex items-center gap-2 text-[#2B4C5E] text-xs font-medium border border-[#2B4C5E]/20 px-4 py-2 rounded-lg hover:border-[#2B4C5E]/40 hover:bg-[#2B4C5E]/3 transition-all duration-200 min-h-[40px]"
               >
                 <i className="ri-linkedin-box-fill text-sm"></i>
                 Ver perfil en LinkedIn
@@ -148,60 +148,24 @@ export default function About() {
             {/* ─── RIGHT: Evidencia editorial ─── */}
             <div className="lg:col-span-3 space-y-7">
 
-              {/* PUBLICACIÓN DESTACADA — Elemento más expresivo */}
+              {/* PUBLICACIÓN DESTACADA — Nota editorial mínima */}
               <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[#C4960A] text-xs">✦</span>
-                  <h4 className="text-[#8A8680] text-[10px] font-semibold uppercase tracking-[0.15em]">
-                    Publicación destacada
-                  </h4>
-                </div>
                 <a
                   href="https://heyzine.com/flip-book/962233e534.html#page/12"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block relative rounded-xl overflow-hidden border border-[#DDD9D2] bg-gradient-to-br from-[#FFFDF9] to-[#F8F6F1] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                  className="group flex items-center gap-3 px-3 py-2.5 rounded-md border border-[#DDD9D2]/70 bg-[#FFFDF9] hover:border-[#DDD9D2] hover:shadow-sm transition-all duration-150"
                 >
-                  {/* Tape accent on top-left */}
-                  <div className="absolute top-0 left-6 w-10 h-2.5 bg-[#C8C3AA]/35 rounded-b-sm z-10"></div>
-
-                  <div className="p-5 sm:p-6">
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      {/* Publication icon — booklet feel */}
-                      <div className="w-11 h-14 rounded border border-[#DDD9D2] bg-[#FFFDF9] flex items-center justify-center flex-shrink-0 shadow-sm">
-                        <i className="ri-book-open-line text-[#1B4F72] text-lg"></i>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h5 className="text-[#2C2A26] font-semibold text-sm leading-tight mb-1.5 group-hover:text-[#1B4F72] transition-colors break-words">
-                          HOUSTON, TENEMOS UN §PROBLEMA? ARQUITECTURAS DE SOFTWARE QUE NO PUEDEN FALLAR
-                        </h5>
-                        <p className="text-[#8A8680] text-[10px] mb-2.5 flex items-center gap-2">
-                          <span>21 oct. 2025</span>
-                          <span className="w-3 h-px bg-[#DDD9D2]"></span>
-                          <span className="italic">Artículo publicado</span>
-                        </p>
-                        <p className="text-[#5C5850] text-xs leading-relaxed">
-                          Análisis de arquitecturas de software resilientes, patrones de diseño para sistemas de misión crítica y lecciones de ingeniería a escala.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="mt-4 pt-3 border-t border-[#DDD9D2]/60 flex items-center justify-between">
-                      <span className="text-[#1B4F72] text-[11px] font-medium group-hover:underline inline-flex items-center gap-1">
-                        Leer artículo completo
-                        <i className="ri-arrow-right-up-line text-[10px]"></i>
-                      </span>
-                      <span className="text-[#8A8680] text-[9px] italic hidden sm:inline">revista digital</span>
-                    </div>
+                  <i className="ri-article-line text-[#2B4C5E] text-sm flex-shrink-0"></i>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[#2C2A26] text-[11px] font-medium leading-tight line-clamp-1 group-hover:text-[#2B4C5E] transition-colors">
+                      Houston, tenemos un problema? Arquitecturas que no pueden fallar
+                    </p>
+                    <p className="text-[#8A8680] text-[8px] mt-0.5">
+                      Oct 2025 · Artículo publicado
+                    </p>
                   </div>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/diego-romero-mora-1094a41a2/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-[#8A8680] text-[10px] mt-2 ink-link"
-                >
-                  Más publicaciones en LinkedIn
-                  <i className="ri-external-link-line text-[9px]"></i>
+                  <i className="ri-arrow-right-up-line text-[#8A8680] text-[10px] group-hover:text-[#2B4C5E] transition-colors flex-shrink-0"></i>
                 </a>
               </div>
 
@@ -267,7 +231,7 @@ export default function About() {
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={() => scroll("left")}
-                  className="w-6 h-6 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#1B4F72] hover:text-[#1B4F72] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
+                  className="w-6 h-6 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#2B4C5E] hover:text-[#2B4C5E] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
                   aria-label="Anterior"
                 >
                   <i className="ri-arrow-left-s-line text-xs"></i>
@@ -275,7 +239,7 @@ export default function About() {
                 <span className="text-[#DDD9D2] text-[8px]">◆</span>
                 <button
                   onClick={() => scroll("right")}
-                  className="w-6 h-6 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#1B4F72] hover:text-[#1B4F72] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
+                  className="w-6 h-6 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#2B4C5E] hover:text-[#2B4C5E] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
                   aria-label="Siguiente"
                 >
                   <i className="ri-arrow-right-s-line text-xs"></i>
@@ -295,18 +259,18 @@ export default function About() {
               {credentials.map((cred, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 w-[220px] snap-start rounded-lg border border-[#DDD9D2] bg-[#FFFDF9] p-3.5 hover:border-[#1B4F72]/20 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200"
+                  className="flex-shrink-0 w-[220px] snap-start rounded-lg border border-[#DDD9D2] bg-[#FFFDF9] p-3.5 hover:border-[#2B4C5E]/20 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200"
                 >
                   {/* Issuer as colored top-bar accent */}
                   <div className="flex items-center gap-2 mb-2.5 pb-2 border-b border-[#DDD9D2]/50">
-                    <i className={`text-[#1B4F72] text-xs ${
+                    <i className={`text-[#2B4C5E] text-xs ${
                       cred.issuer === "AWS" ? "ri-cloud-line" :
                       cred.issuer === "Google" ? "ri-google-line" :
                       cred.issuer === "Oracle" ? "ri-database-2-line" :
                       cred.issuer === "IBM" ? "ri-brain-line" :
                       "ri-award-line"
                     }`}></i>
-                    <span className="text-[#1B4F72] text-[10px] font-semibold uppercase tracking-wide">{cred.issuer}</span>
+                    <span className="text-[#2B4C5E] text-[10px] font-semibold uppercase tracking-wide">{cred.issuer}</span>
                   </div>
                   <h5 className="text-[#2C2A26] text-[11px] font-semibold leading-tight mb-2 line-clamp-2">
                     {cred.name}
