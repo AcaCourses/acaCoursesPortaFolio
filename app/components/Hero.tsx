@@ -33,7 +33,7 @@ export default function Hero() {
                 href="#cursos"
                 className="inline-flex items-center gap-2 bg-[#013B75] text-white font-medium px-6 py-3 rounded-lg hover:bg-[#012a57] transition-all duration-200 hover:shadow-lg text-sm min-h-[44px]"
               >
-                Ver curso
+                Ver cursos
                 <i className="ri-arrow-right-line"></i>
               </a>
 
