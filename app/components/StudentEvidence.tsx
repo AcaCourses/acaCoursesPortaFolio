@@ -11,6 +11,12 @@ import AWSome from "./assets/imgs/AWSome.png";
 import Inmersion from "./assets/imgs/Inmersion.png";
 import MongoDB from "./assets/imgs/Mongo.png";
 import INFOTEC from "./assets/imgs/info.png";
+import oktaImg from "./assets/imgs/okta.png";
+import bbvaImg from "./assets/imgs/logo-bbva-960x640.jpg";
+import googleImg from "./assets/imgs/icons8-google-48.png";
+import redhatImg from "./assets/imgs/icons8-red-hat-48.png";
+import awsImg from "./assets/imgs/icons8-aws-48.png";
+import buildWithIaImg from "./assets/imgs/BuildWithIA.png";
 
  // TODO: reemplazar con imagen real
 export default function StudentEvidence() {
@@ -18,6 +24,11 @@ export default function StudentEvidence() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+
+  const postItCarouselRef = useRef<HTMLDivElement>(null);
+  const [isDraggingPostIts, setIsDraggingPostIts] = useState(false);
+  const [startXPostIts, setStartXPostIts] = useState(0);
+  const [scrollLeftPostIts, setScrollLeftPostIts] = useState(0);
 
   const scroll = (direction: "left" | "right") => {
     if (!carouselRef.current) return;
@@ -58,6 +69,46 @@ export default function StudentEvidence() {
     }, 3000);
     return () => clearInterval(interval);
   }, [isDragging]);
+
+  const scrollPostIts = (direction: "left" | "right") => {
+    if (!postItCarouselRef.current) return;
+    const scrollAmount = 260;
+    postItCarouselRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
+
+  const handlePostItsMouseDown = (e: React.MouseEvent) => {
+    if (!postItCarouselRef.current) return;
+    setIsDraggingPostIts(true);
+    setStartXPostIts(e.pageX - postItCarouselRef.current.offsetLeft);
+    setScrollLeftPostIts(postItCarouselRef.current.scrollLeft);
+  };
+
+  const handlePostItsMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingPostIts || !postItCarouselRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - postItCarouselRef.current.offsetLeft;
+    const walk = (x - startXPostIts) * 1.5;
+    postItCarouselRef.current.scrollLeft = scrollLeftPostIts - walk;
+  };
+
+  const handlePostItsMouseUp = () => setIsDraggingPostIts(false);
+
+  // Auto-scroll post-its
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!postItCarouselRef.current || isDraggingPostIts) return;
+      const { scrollLeft, scrollWidth, clientWidth } = postItCarouselRef.current;
+      if (scrollLeft + clientWidth >= scrollWidth - 10) {
+        postItCarouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        postItCarouselRef.current.scrollBy({ left: 260, behavior: "smooth" });
+      }
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [isDraggingPostIts]);
 
   // All images for hero rotation
   const allImages = [img, OracleD, GBuild, NextPlay, DataBreakfast, AWSome, Inmersion, MongoDB, INFOTEC];
@@ -101,6 +152,86 @@ export default function StudentEvidence() {
     { name: "Inmersión de Agentes de IA", type: "Bootcamp", location: "Virtual", image: Inmersion },
     { name: "MongoDB Building AI Agents", type: "Workshop", location: "Virtual", image: MongoDB },
     { name: "INFOTEC – Google Cloud Data Analytics Certificate", type: "Certificación", location: "CDMX", image: INFOTEC },
+  ];
+
+  const postItEvents = [
+    {
+      name: "IA Identity Summit",
+      company: "Okta",
+      image: oktaImg,
+      rotate: "-rotate-1",
+      bgColor: "bg-[#FFFDF9]",
+    },
+    {
+      name: "Mujeres en Tech",
+      company: "BBVA Spark",
+      image: bbvaImg,
+      rotate: "rotate-1",
+      bgColor: "bg-[#FAF7ED]",
+    },
+    {
+      name: "Discover what’s next: WWDC26",
+      company: "Apple",
+      icon: "ri-apple-fill",
+      rotate: "-rotate-2",
+      bgColor: "bg-[#FFFDF9]",
+    },
+    {
+      name: "Cloud Native CDMX",
+      company: "Google",
+      image: googleImg,
+      rotate: "rotate-2",
+      bgColor: "bg-[#F5F3EF]",
+    },
+    {
+      name: "Ansible Automates CDMX 2026",
+      company: "Red Hat",
+      image: redhatImg,
+      rotate: "-rotate-1",
+      bgColor: "bg-[#FAF7ED]",
+    },
+    {
+      name: "DevDays Latam: Go Agentic with Serverless",
+      company: "AWS",
+      image: awsImg,
+      rotate: "rotate-1",
+      bgColor: "bg-[#FFFDF9]",
+    },
+    {
+      name: "Google Data Cloud & Apigee: AI Evolution Summit",
+      company: "Google",
+      image: googleImg,
+      rotate: "-rotate-2",
+      bgColor: "bg-[#F5F3EF]",
+    },
+    {
+      name: "AWS Summit 2026",
+      company: "AWS",
+      image: awsImg,
+      rotate: "rotate-2",
+      bgColor: "bg-[#FAF7ED]",
+    },
+    {
+      name: "Build With IA",
+      company: "Google",
+      image: buildWithIaImg,
+      rotate: "-rotate-1",
+      bgColor: "bg-[#FFFDF9]",
+    },
+    {
+      name: "Quantum Day Latino",
+      company: "Google",
+      image: googleImg,
+      rotate: "rotate-1",
+      bgColor: "bg-[#FAF7ED]",
+    },
+    {
+      name: "Agentic League",
+      company: "AWS",
+      image: awsImg,
+      rotate: "-rotate-2",
+      bgColor: "bg-[#F5F3EF]",
+    },
   ];
 
   const benefits = [
@@ -354,6 +485,88 @@ export default function StudentEvidence() {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* ─── 3.5 OTROS EVENTOS — Banner tipo Post-its pegados ─── */}
+        <div className="mb-14 sm:mb-20 bg-[#F5F3EF]/60 border border-[#DDD9D2]/70 rounded-2xl p-5 sm:p-7 relative overflow-hidden">
+          {/* Top subtle tape line */}
+          <div className="absolute top-0 left-8 right-8 h-1 bg-gradient-to-r from-transparent via-[#C4960A]/20 to-transparent"></div>
+
+          <div className="flex items-center justify-between mb-5">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rounded-full bg-[#C4960A]"></span>
+              <h3 className="text-[#2C2A26] font-semibold text-xs sm:text-sm uppercase tracking-[0.15em]">
+                Hemos asistido a los siguientes eventos juntos
+              </h3>
+              <span className="text-[#8A8680] text-[10px] italic hidden md:inline ml-2">
+                — notas adhesivas de la bitácora
+              </span>
+            </div>
+            {/* Navigation controls */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => scrollPostIts("left")}
+                className="w-7 h-7 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#2B4C5E] hover:text-[#2B4C5E] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
+                aria-label="Eventos anteriores"
+              >
+                <i className="ri-arrow-left-s-line text-xs"></i>
+              </button>
+              <span className="text-[#8A8680] text-[9px]">◆</span>
+              <button
+                onClick={() => scrollPostIts("right")}
+                className="w-7 h-7 rounded border border-[#DDD9D2] flex items-center justify-center hover:border-[#2B4C5E] hover:text-[#2B4C5E] transition-colors text-[#8A8680] cursor-pointer bg-[#FFFDF9]"
+                aria-label="Eventos siguientes"
+              >
+                <i className="ri-arrow-right-s-line text-xs"></i>
+              </button>
+            </div>
+          </div>
+
+          <div
+            ref={postItCarouselRef}
+            className="flex gap-4 overflow-x-auto snap-x snap-mandatory py-3 px-1 cursor-grab active:cursor-grabbing"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            onMouseDown={handlePostItsMouseDown}
+            onMouseMove={handlePostItsMouseMove}
+            onMouseUp={handlePostItsMouseUp}
+            onMouseLeave={handlePostItsMouseUp}
+          >
+            {postItEvents.map((item, idx) => (
+              <div
+                key={idx}
+                className={`flex-shrink-0 snap-start relative w-[230px] sm:w-[250px] p-4 rounded-xl border border-[#DDD9D2] ${item.bgColor} ${item.rotate} shadow-sm hover:shadow-md hover:scale-[1.02] hover:rotate-0 transition-all duration-300 flex items-center justify-between gap-3 group`}
+              >
+                {/* Washi tape detail on top of post-it */}
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 w-12 h-3 bg-[#C8C3AA]/40 backdrop-blur-xs rounded-xs border-b border-[#B0AB94]/30 pointer-events-none"></div>
+
+                {/* Left: Event Name & Company */}
+                <div className="flex-1 min-w-0 pr-1">
+                  <h4 className="text-[#2C2A26] font-semibold text-xs sm:text-[13px] leading-snug group-hover:text-[#2B4C5E] transition-colors line-clamp-2">
+                    {item.name}
+                  </h4>
+                  <span className="text-[#8A8680] text-[10px] font-medium mt-1.5 inline-flex items-center gap-1">
+                    <span className="w-1 h-1 rounded-full bg-[#C4960A]"></span>
+                    by {item.company}
+                  </span>
+                </div>
+
+                {/* Right: Company Logo / Icon */}
+                <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/90 p-1.5 border border-[#DDD9D2]/70 shadow-xs flex items-center justify-center overflow-hidden">
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt={item.company}
+                      width={36}
+                      height={36}
+                      className="object-contain max-h-full max-w-full"
+                    />
+                  ) : (
+                    <i className={`${item.icon} text-2xl text-[#2C2A26]`}></i>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

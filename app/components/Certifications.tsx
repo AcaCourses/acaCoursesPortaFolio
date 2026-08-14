@@ -21,6 +21,14 @@ export default function Certifications() {
 
   const credentials: Credential[] = [
     {
+      name: "Associate Cloud Engineer Certification",
+      issuer: "Google",
+      issued: "may. 2026",
+      expires: "may. 2030",
+      category: "Cloud",
+      link: "#",
+    },
+    {
       name: "AWS Certified Solutions Architect – Associate",
       issuer: "Amazon Web Services",
       issued: "2024",
@@ -71,6 +79,7 @@ export default function Certifications() {
       category: "Complementarias",
       link: "#",
     },
+
   ];
 
   const filters = ["Todos", "Cloud", "AI", "Professional", "Complementarias"];
@@ -133,11 +142,10 @@ export default function Certifications() {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${
-                activeFilter === filter
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${activeFilter === filter
                   ? "bg-[#2B4C5E] text-white"
                   : "bg-white border border-[#E0E0DE] text-[#5A5A5A] hover:border-[#2B4C5E]/30 hover:text-[#2B4C5E]"
-              }`}
+                }`}
             >
               {filter}
             </button>
@@ -161,13 +169,12 @@ export default function Certifications() {
             >
               {/* Issuer icon */}
               <div className="w-10 h-10 rounded-lg bg-[#F7F6F2] flex items-center justify-center mb-3">
-                <i className={`text-[#2B4C5E] text-lg ${
-                  cred.issuer.includes("Google") ? "ri-google-line" :
-                  cred.issuer.includes("Oracle") ? "ri-database-2-line" :
-                  cred.issuer.includes("Amazon") || cred.issuer.includes("AWS") ? "ri-cloud-line" :
-                  cred.issuer.includes("IBM") ? "ri-brain-line" :
-                  "ri-award-line"
-                }`}></i>
+                <i className={`text-[#2B4C5E] text-lg ${cred.issuer.includes("Google") ? "ri-google-line" :
+                    cred.issuer.includes("Oracle") ? "ri-database-2-line" :
+                      cred.issuer.includes("Amazon") || cred.issuer.includes("AWS") ? "ri-cloud-line" :
+                        cred.issuer.includes("IBM") ? "ri-brain-line" :
+                          "ri-award-line"
+                  }`}></i>
               </div>
 
               <h3 className="text-[#1A1A1A] font-semibold text-sm leading-tight mb-2 line-clamp-2">
