@@ -67,28 +67,28 @@ export default function Hero() {
             href="https://edu.google.com/for-educators/communities/higher-ed-faculty-ai-fellowship/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative w-full max-w-[560px] p-5 sm:p-6 rounded-2xl bg-[#FFFDF9]/95 border border-[#C4960A]/35 shadow-[0_4px_24px_rgba(196,150,10,0.09)] hover:shadow-[0_12px_40px_rgba(43,76,94,0.18)] hover:border-[#C4960A]/70 hover:-translate-y-2 scale-100 hover:scale-[1.015] transition-all duration-300 backdrop-blur-md overflow-hidden text-left block cursor-pointer"
+            className="group relative w-full max-w-[560px] p-5 sm:p-6 rounded-2xl bg-[#FFFDF9]/95 border border-[#C4960A]/20 hover:border-[#C4960A]/60 shadow-[0_4px_24px_rgba(43,76,94,0.06)] hover:shadow-[0_16px_40px_rgba(196,150,10,0.15)] hover:-translate-y-2 scale-100 hover:scale-[1.015] transition-all duration-300 ease-out backdrop-blur-md overflow-hidden text-left block cursor-pointer"
           >
             {/* Top Washi Tape Detail — Archival Touch */}
-            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-16 h-3 bg-[#C8C3AA]/40 backdrop-blur-xs rounded-xs border-b border-[#B0AB94]/30 pointer-events-none z-20"></div>
+            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-16 h-3 bg-[#C8C3AA]/35 backdrop-blur-xs rounded-xs border-b border-[#B0AB94]/25 pointer-events-none z-20"></div>
 
             {/* Animated shimmer sweep effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C4960A]/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C4960A]/12 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none"></div>
 
             {/* Card Content Grid */}
             <div className="flex items-start gap-4 sm:gap-5 relative z-10">
               
-              {/* Left: Animated Icon Box */}
-              <div className="flex-shrink-0 relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#2B4C5E]/10 via-[#C4960A]/18 to-[#4285F4]/15 p-2.5 border border-[#C4960A]/30 shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+              {/* Left: Animated Icon Box with Multi-layer Glow */}
+              <div className="flex-shrink-0 relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#2B4C5E]/8 via-[#C4960A]/15 to-[#4285F4]/12 p-2.5 border border-[#C4960A]/25 shadow-xs group-hover:scale-115 group-hover:rotate-6 group-hover:shadow-[0_0_20px_rgba(196,150,10,0.25)] group-hover:border-[#C4960A]/50 transition-all duration-300 ease-out">
                 <Image
                   src={geminiIcon}
                   alt="Google Gemini Fellow"
                   width={32}
                   height={32}
-                  className="object-contain"
+                  className="object-contain transition-transform duration-300 group-hover:scale-105"
                 />
                 {/* Floating spark badge on icon */}
-                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-[#C4960A] border-2 border-[#FFFDF9] flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-[#C4960A] border-2 border-[#FFFDF9] flex items-center justify-center shadow-xs">
                   <i className="ri-sparkling-fill text-[7px] text-white"></i>
                 </span>
               </div>
@@ -97,7 +97,7 @@ export default function Hero() {
               <div className="flex-1 min-w-0">
                 {/* Header Pills */}
                 <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#C4960A]/12 border border-[#C4960A]/30 text-[#C4960A] text-[10px] font-bold uppercase tracking-[0.16em]">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#C4960A]/10 border border-[#C4960A]/25 text-[#C4960A] text-[10px] font-bold uppercase tracking-[0.16em] group-hover:bg-[#C4960A]/18 group-hover:border-[#C4960A]/40 transition-colors duration-300">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#C4960A] animate-ping"></span>
                     Selected Fellow 2026
                   </div>
@@ -106,10 +106,10 @@ export default function Hero() {
                   </span>
                 </div>
 
-                {/* Main Title */}
-                <h3 className="text-[#2C2A26] font-semibold text-base sm:text-lg tracking-tight leading-snug group-hover:text-[#2B4C5E] transition-colors flex items-center justify-between gap-2">
+                {/* Main Title with Dynamic Arrow */}
+                <h3 className="text-[#2C2A26] font-semibold text-base sm:text-lg tracking-tight leading-snug group-hover:text-[#2B4C5E] transition-colors duration-200 flex items-center justify-between gap-2">
                   <span>Google Higher Ed Faculty AI Fellow LATAM</span>
-                  <i className="ri-arrow-right-up-line text-sm text-[#8A8680] group-hover:text-[#2B4C5E] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 flex-shrink-0"></i>
+                  <i className="ri-arrow-right-up-line text-base text-[#8A8680] group-hover:text-[#C4960A] group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:rotate-12 transition-all duration-300 flex-shrink-0"></i>
                 </h3>
 
                 {/* Subtitle / Description */}
@@ -120,13 +120,14 @@ export default function Hero() {
             </div>
 
             {/* Bottom Subtle Footer Link Tag */}
-            <div className="mt-3.5 pt-2.5 border-t border-[#DDD9D2]/60 flex items-center justify-between text-[10px] text-[#8A8680]">
+            <div className="mt-3.5 pt-2.5 border-t border-[#DDD9D2]/50 flex items-center justify-between text-[10px] text-[#8A8680]">
               <span className="flex items-center gap-1">
                 <i className="ri-award-line text-[#C4960A]"></i>
                 Generación Inaugural 2026
               </span>
-              <span className="text-[#2B4C5E] font-medium group-hover:underline">
+              <span className="relative text-[#2B4C5E] font-medium transition-colors group-hover:text-[#1F3A48]">
                 Conocer programa oficial ↗
+                <span className="absolute bottom-0 left-0 w-0 h-px bg-[#2B4C5E] group-hover:w-full transition-all duration-300"></span>
               </span>
             </div>
           </a>
