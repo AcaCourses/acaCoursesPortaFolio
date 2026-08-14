@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import img from "./assets/imgs/TalentLand.jpg";
 import OracleD from "./assets/imgs/Oracle DeepDive.jpg";
-import  GBuild from "./assets/imgs/BuildWithIA.png";
+import GBuild from "./assets/imgs/BuildWithIA.png";
 import NextPlay from "./assets/imgs/NextPlay.jpg";
 import DataBreakfast from "./assets/imgs/DataForB.png";
 import AWSome from "./assets/imgs/AWSome.png";
@@ -18,7 +18,7 @@ import redhatImg from "./assets/imgs/icons8-red-hat-48.png";
 import awsImg from "./assets/imgs/icons8-aws-48.png";
 import buildWithIaImg from "./assets/imgs/BuildWithIA.png";
 
- // TODO: reemplazar con imagen real
+// TODO: reemplazar con imagen real
 export default function StudentEvidence() {
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -214,7 +214,7 @@ export default function StudentEvidence() {
     {
       name: "Build With IA",
       company: "Google",
-      image: buildWithIaImg,
+      image: googleImg,
       rotate: "-rotate-1",
       bgColor: "bg-[#FFFDF9]",
     },
@@ -457,13 +457,12 @@ export default function StudentEvidence() {
                       </div>
                     )}
                     {/* Type as color-coded sticker by category */}
-                    <span className={`absolute top-2 left-2 text-[9px] font-semibold px-2 py-0.5 rounded uppercase tracking-wide ${
-                      event.type === "Workshop" ? "bg-[#2B4C5E]/90 text-white" :
-                      event.type === "Summit" ? "bg-[#C4960A]/90 text-white" :
-                      event.type === "Bootcamp" ? "bg-[#6B4C3B]/85 text-white" :
-                      event.type === "Certificación" ? "bg-[#2D6A4F]/85 text-white" :
-                      "bg-[#FFFDF9]/90 text-[#2B4C5E] border border-[#DDD9D2]/50"
-                    }`}>
+                    <span className={`absolute top-2 left-2 text-[9px] font-semibold px-2 py-0.5 rounded uppercase tracking-wide ${event.type === "Workshop" ? "bg-[#2B4C5E]/90 text-white" :
+                        event.type === "Summit" ? "bg-[#C4960A]/90 text-white" :
+                          event.type === "Bootcamp" ? "bg-[#6B4C3B]/85 text-white" :
+                            event.type === "Certificación" ? "bg-[#2D6A4F]/85 text-white" :
+                              "bg-[#FFFDF9]/90 text-[#2B4C5E] border border-[#DDD9D2]/50"
+                      }`}>
                       {event.type}
                     </span>
                   </div>
@@ -590,9 +589,8 @@ export default function StudentEvidence() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className={`rounded-lg border border-[#DDD9D2]/60 p-3.5 bg-[#FFFDF9] hover:border-[#2B4C5E]/15 transition-colors ${
-                  index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
-                }`}
+                className={`rounded-lg border border-[#DDD9D2]/60 p-3.5 bg-[#FFFDF9] hover:border-[#2B4C5E]/15 transition-colors ${index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
+                  }`}
               >
                 <div className="flex items-start gap-2.5">
                   <i className={`${benefit.icon} text-[#C4960A] text-sm mt-0.5`}></i>

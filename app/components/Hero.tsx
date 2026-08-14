@@ -61,43 +61,75 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* ─── GOOGLE FELLOWSHIP BADGE ─── */}
-        <div className="animate-fade-up-delay-4 flex justify-center mt-2">
-          <div className="group relative inline-flex items-center gap-3.5 px-5 py-3 rounded-2xl bg-[#FFFDF9]/90 border border-[#C4960A]/35 shadow-[0_4px_20px_rgba(196,150,10,0.1)] hover:shadow-[0_6px_28px_rgba(43,76,94,0.18)] hover:border-[#2B4C5E]/50 transition-all duration-300 backdrop-blur-md overflow-hidden cursor-default">
-            
-            {/* Animated shimmer highlight effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C4960A]/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+        {/* ─── GOOGLE FELLOWSHIP RECOGNITION CARD ─── */}
+        <div className="animate-fade-up-delay-4 flex justify-center mt-6">
+          <a
+            href="https://edu.google.com/for-educators/communities/higher-ed-faculty-ai-fellowship/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative w-full max-w-[560px] p-5 sm:p-6 rounded-2xl bg-[#FFFDF9]/95 border border-[#C4960A]/35 shadow-[0_4px_24px_rgba(196,150,10,0.09)] hover:shadow-[0_12px_40px_rgba(43,76,94,0.18)] hover:border-[#C4960A]/70 hover:-translate-y-2 scale-100 hover:scale-[1.015] transition-all duration-300 backdrop-blur-md overflow-hidden text-left block cursor-pointer"
+          >
+            {/* Top Washi Tape Detail — Archival Touch */}
+            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-16 h-3 bg-[#C8C3AA]/40 backdrop-blur-xs rounded-xs border-b border-[#B0AB94]/30 pointer-events-none z-20"></div>
 
-            {/* Glowing icon badge container */}
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#2B4C5E]/10 via-[#C4960A]/15 to-[#4285F4]/10 p-2 border border-[#C4960A]/30 group-hover:scale-110 transition-transform duration-300">
-              <Image
-                src={geminiIcon}
-                alt="Google Gemini Fellow"
-                width={24}
-                height={24}
-                className="object-contain animate-pulse duration-[3000ms]"
-              />
-            </div>
+            {/* Animated shimmer sweep effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C4960A]/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none"></div>
 
-            {/* Badge Text Content */}
-            <div className="text-left">
-              <div className="flex items-center gap-2">
-                <span className="text-[#C4960A] text-[9px] font-bold uppercase tracking-[0.18em]">
-                  Fellowship 2026
-                </span>
-                <span className="w-1 h-1 rounded-full bg-[#C4960A]/60"></span>
-                <span className="text-[#2B4C5E] text-[9px] font-semibold tracking-wide">
-                  Google for Education
+            {/* Card Content Grid */}
+            <div className="flex items-start gap-4 sm:gap-5 relative z-10">
+              
+              {/* Left: Animated Icon Box */}
+              <div className="flex-shrink-0 relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#2B4C5E]/10 via-[#C4960A]/18 to-[#4285F4]/15 p-2.5 border border-[#C4960A]/30 shadow-xs group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                <Image
+                  src={geminiIcon}
+                  alt="Google Gemini Fellow"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
+                {/* Floating spark badge on icon */}
+                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-[#C4960A] border-2 border-[#FFFDF9] flex items-center justify-center">
+                  <i className="ri-sparkling-fill text-[7px] text-white"></i>
                 </span>
               </div>
-              <h3 className="text-[#2C2A26] font-semibold text-xs sm:text-sm tracking-tight leading-tight mt-0.5 group-hover:text-[#2B4C5E] transition-colors">
-                Google Higher Ed Faculty AI Fellow LATAM
-              </h3>
+
+              {/* Middle/Right: Info & Text */}
+              <div className="flex-1 min-w-0">
+                {/* Header Pills */}
+                <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#C4960A]/12 border border-[#C4960A]/30 text-[#C4960A] text-[10px] font-bold uppercase tracking-[0.16em]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#C4960A] animate-ping"></span>
+                    Selected Fellow 2026
+                  </div>
+                  <span className="text-[#8A8680] text-[10px] font-medium tracking-wide">
+                    Google for Education · LATAM
+                  </span>
+                </div>
+
+                {/* Main Title */}
+                <h3 className="text-[#2C2A26] font-semibold text-base sm:text-lg tracking-tight leading-snug group-hover:text-[#2B4C5E] transition-colors flex items-center justify-between gap-2">
+                  <span>Google Higher Ed Faculty AI Fellow LATAM</span>
+                  <i className="ri-arrow-right-up-line text-sm text-[#8A8680] group-hover:text-[#2B4C5E] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 flex-shrink-0"></i>
+                </h3>
+
+                {/* Subtitle / Description */}
+                <p className="text-[#5C5850] text-xs sm:text-[13px] leading-relaxed mt-1 italic">
+                  Fellowship de IA para Docentes de Educación Superior · Liderando la transformación académica y la innovación responsable con IA.
+                </p>
+              </div>
             </div>
 
-            {/* Subtle spark icon */}
-            <i className="ri-sparkling-fill text-[#C4960A] text-sm opacity-70 group-hover:opacity-100 group-hover:rotate-12 transition-all duration-300 ml-1"></i>
-          </div>
+            {/* Bottom Subtle Footer Link Tag */}
+            <div className="mt-3.5 pt-2.5 border-t border-[#DDD9D2]/60 flex items-center justify-between text-[10px] text-[#8A8680]">
+              <span className="flex items-center gap-1">
+                <i className="ri-award-line text-[#C4960A]"></i>
+                Generación Inaugural 2026
+              </span>
+              <span className="text-[#2B4C5E] font-medium group-hover:underline">
+                Conocer programa oficial ↗
+              </span>
+            </div>
+          </a>
         </div>
 
       </div>
