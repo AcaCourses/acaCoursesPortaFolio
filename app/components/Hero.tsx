@@ -78,8 +78,8 @@ export default function Hero() {
             {/* Card Content Grid */}
             <div className="flex items-start gap-4 sm:gap-5 relative z-10">
               
-              {/* Left: Standalone Gemini Icon */}
-              <div className="flex-shrink-0 relative flex items-center justify-center pt-1">
+              {/* Left: Standalone Gemini Icon with Slide Animation */}
+              <div className="flex-shrink-0 relative flex items-center justify-center pt-1 animate-gemini-slide">
                 <Image
                   src={geminiIcon}
                   alt="Google Gemini Fellow"
@@ -89,8 +89,8 @@ export default function Hero() {
                 />
               </div>
 
-              {/* Middle/Right: Info & Text */}
-              <div className="flex-1 min-w-0">
+              {/* Middle/Right: Info & Text with Reveal Animation */}
+              <div className="flex-1 min-w-0 animate-fellow-text-reveal">
                 {/* Header Pills */}
                 <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#C4960A]/10 border border-[#C4960A]/25 text-[#C4960A] text-[10px] font-bold uppercase tracking-[0.16em] group-hover:bg-[#C4960A]/18 group-hover:border-[#C4960A]/40 transition-colors duration-300">

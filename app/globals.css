@@ -74,6 +74,57 @@ html {
 }
 
 /* ═══════════════════════════════════════════
+   GEMINI FELLOW REVEAL ANIMATION
+   ═══════════════════════════════════════════ */
+@keyframes geminiGlowSlide {
+  0% {
+    transform: translateX(140px) scale(1.35) rotate(-6deg);
+    filter: drop-shadow(0 0 16px rgba(196, 150, 10, 0.8));
+    opacity: 0;
+  }
+  30% {
+    transform: translateX(140px) scale(1.45) rotate(8deg);
+    filter: drop-shadow(0 0 24px rgba(196, 150, 10, 0.95));
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(140px) scale(1.25) rotate(-3deg);
+    filter: drop-shadow(0 0 18px rgba(196, 150, 10, 0.85));
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) scale(1) rotate(0deg);
+    filter: drop-shadow(0 2px 8px rgba(196, 150, 10, 0.25));
+    opacity: 1;
+  }
+}
+
+@keyframes fellowTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  55% {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-gemini-slide {
+  animation: geminiGlowSlide 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+  opacity: 0;
+}
+
+.animate-fellow-text-reveal {
+  animation: fellowTextReveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+  opacity: 0;
+}
+
+/* ═══════════════════════════════════════════
    SCROLL REVEALS - opacity & clip-path only
    ═══════════════════════════════════════════ */
 
