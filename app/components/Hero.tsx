@@ -61,70 +61,45 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* ─── GOOGLE FELLOWSHIP RECOGNITION CARD ─── */}
-        <div className="animate-fade-up-delay-4 flex justify-center mt-6">
+        {/* ─── COMPACT GOOGLE FELLOWSHIP CARD ─── */}
+        <div className="animate-fade-up-delay-4 flex justify-center mt-5">
           <a
             href="https://edu.google.com/for-educators/communities/higher-ed-faculty-ai-fellowship/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative w-full max-w-[560px] p-5 sm:p-6 rounded-2xl bg-[#FFFDF9]/95 border border-[#C4960A]/20 hover:border-[#C4960A]/60 shadow-[0_4px_24px_rgba(43,76,94,0.06)] hover:shadow-[0_16px_40px_rgba(196,150,10,0.15)] hover:-translate-y-2 scale-100 hover:scale-[1.015] transition-all duration-300 ease-out backdrop-blur-md overflow-hidden text-left block cursor-pointer"
+            className="group relative w-full max-w-[440px] px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl bg-[#FFFDF9]/95 border border-[#C4960A]/25 hover:border-[#C4960A]/60 shadow-[0_3px_18px_rgba(43,76,94,0.06)] hover:shadow-[0_10px_28px_rgba(196,150,10,0.14)] hover:-translate-y-1 scale-100 hover:scale-[1.01] transition-all duration-300 ease-out backdrop-blur-md overflow-hidden text-left block cursor-pointer"
           >
-            {/* Top Washi Tape Detail — Archival Touch */}
-            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-16 h-3 bg-[#C8C3AA]/35 backdrop-blur-xs rounded-xs border-b border-[#B0AB94]/25 pointer-events-none z-20"></div>
+            {/* Top Washi Tape Detail */}
+            <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-[#C8C3AA]/35 backdrop-blur-xs rounded-xs border-b border-[#B0AB94]/25 pointer-events-none z-20"></div>
 
             {/* Animated shimmer sweep effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C4960A]/12 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none"></div>
 
             {/* Card Content Grid */}
-            <div className="flex items-start gap-4 sm:gap-5 relative z-10">
+            <div className="flex items-center gap-3.5 relative z-10">
               
               {/* Left: Standalone Gemini Icon with Slide Animation */}
-              <div className="flex-shrink-0 relative flex items-center justify-center pt-1 animate-gemini-slide">
+              <div className="flex-shrink-0 relative flex items-center justify-center animate-gemini-slide">
                 <Image
                   src={geminiIcon}
                   alt="Google Gemini Fellow"
-                  width={34}
-                  height={34}
-                  className="object-contain group-hover:scale-115 group-hover:rotate-12 transition-transform duration-300 ease-out drop-shadow-[0_2px_8px_rgba(196,150,10,0.25)]"
+                  width={28}
+                  height={28}
+                  className="object-contain group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300 ease-out drop-shadow-[0_2px_6px_rgba(196,150,10,0.25)]"
                 />
               </div>
 
               {/* Middle/Right: Info & Text with Reveal Animation */}
               <div className="flex-1 min-w-0 animate-fellow-text-reveal">
-                {/* Header Pills */}
-                <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#C4960A]/10 border border-[#C4960A]/25 text-[#C4960A] text-[10px] font-bold uppercase tracking-[0.16em] group-hover:bg-[#C4960A]/18 group-hover:border-[#C4960A]/40 transition-colors duration-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C4960A] animate-ping"></span>
-                    Selected Fellow 2026
-                  </div>
-                  <span className="text-[#8A8680] text-[10px] font-medium tracking-wide">
-                    Google for Education · LATAM
-                  </span>
-                </div>
-
-                {/* Main Title with Dynamic Arrow */}
-                <h3 className="text-[#2C2A26] font-semibold text-base sm:text-lg tracking-tight leading-snug group-hover:text-[#2B4C5E] transition-colors duration-200 flex items-center justify-between gap-2">
+                <h3 className="text-[#2C2A26] font-semibold text-xs sm:text-sm tracking-tight leading-tight group-hover:text-[#2B4C5E] transition-colors duration-200 flex items-center justify-between gap-1.5">
                   <span>Google Higher Ed Faculty AI Fellow LATAM</span>
-                  <i className="ri-arrow-right-up-line text-base text-[#8A8680] group-hover:text-[#C4960A] group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:rotate-12 transition-all duration-300 flex-shrink-0"></i>
+                  <i className="ri-arrow-right-up-line text-xs text-[#8A8680] group-hover:text-[#C4960A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 flex-shrink-0"></i>
                 </h3>
 
-                {/* Subtitle / Description */}
-                <p className="text-[#5C5850] text-xs sm:text-[13px] leading-relaxed mt-1 italic">
-                  Fellowship de IA para Docentes de Educación Superior · Liderando la transformación académica y la innovación responsable con IA.
+                <p className="text-[#5C5850] text-[11px] leading-tight mt-0.5 italic">
+                  Fellowship de IA para Docentes de Educación Superior · 2026
                 </p>
               </div>
-            </div>
-
-            {/* Bottom Subtle Footer Link Tag */}
-            <div className="mt-3.5 pt-2.5 border-t border-[#DDD9D2]/50 flex items-center justify-between text-[10px] text-[#8A8680]">
-              <span className="flex items-center gap-1">
-                <i className="ri-award-line text-[#C4960A]"></i>
-                Generación Inaugural 2026
-              </span>
-              <span className="relative text-[#2B4C5E] font-medium transition-colors group-hover:text-[#1F3A48]">
-                Conocer programa oficial ↗
-                <span className="absolute bottom-0 left-0 w-0 h-px bg-[#2B4C5E] group-hover:w-full transition-all duration-300"></span>
-              </span>
             </div>
           </a>
         </div>
