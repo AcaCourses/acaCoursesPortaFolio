@@ -234,6 +234,35 @@ export default function StudentEvidence() {
     },
   ];
 
+  const successStories = [
+    {
+      name: "Daniel Velázquez",
+      program: "Walmart Spark Me Up",
+      company: "Walmart",
+      role: "Finance Analyst Intern – Fraud Prevention, Refunds & Strategic Initiatives",
+      period: "Ago. 2026 - Actualidad",
+      location: "Área metropolitana de CDMX",
+      areas: ["Category Strategy", "Fraud Prevention", "Risk Assessment", "E-Commerce"],
+      description:
+        "Desempeño en el departamento de Anti-Fraud enfocado en la integridad financiera, monitoreo de vendedores, evaluación de riesgos y optimización de procesos para iniciativas estratégicas de comercio electrónico.",
+      linkedin: "https://www.linkedin.com/company/2646/",
+      initials: "DV",
+    },
+    {
+      name: "Emiliano Ruiz",
+      program: "Walmart Spark Me Up",
+      company: "Walmart",
+      role: "Customer Service Strategy Intern – Customer Experience & Analytics",
+      period: "Ago. 2026 - Actualidad",
+      location: "Área metropolitana de CDMX",
+      areas: ["Estrategia de Servicio", "Desarrollo E-Commerce", "Modelización de Datos", "Customer Experience"],
+      description:
+        "Desarrollo de modelos analíticos avanzados para la optimización estratégica del servicio al cliente y soluciones omnicanal orientadas al crecimiento del ecosistema e-commerce.",
+      linkedin: "https://www.linkedin.com/company/2646/",
+      initials: "ER",
+    },
+  ];
+
   const benefits = [
     {
       icon: "ri-contacts-line",
@@ -563,6 +592,104 @@ export default function StudentEvidence() {
                   ) : (
                     <i className={`${item.icon} text-2xl text-[#2C2A26]`}></i>
                   )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ─── 3.8 CASOS DE ÉXITO — Fichas de Trayectoria Profesional ─── */}
+        <div id="casos-de-exito" className="mb-14 sm:mb-20 scroll-mt-24">
+          <div className="flex items-center justify-between mb-7">
+            <div className="flex items-center gap-3">
+              <span className="w-6 h-px bg-[#DDD9D2]"></span>
+              <h3 className="text-[#2C2A26] font-semibold text-xs uppercase tracking-[0.15em]">
+                Casos de Éxito & Impacto Profesional
+              </h3>
+              <span className="text-[#8A8680] text-[10px] italic hidden sm:inline ml-2">
+                — estudiantes vinculados a posiciones estratégicas
+              </span>
+            </div>
+            <span className="text-[#3E7A22] text-[10px] font-semibold px-2.5 py-1 rounded bg-[#3E7A22]/10 border border-[#3E7A22]/20 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#3E7A22] animate-pulse"></span>
+              Spark Me Up · Walmart
+            </span>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {successStories.map((story, idx) => (
+              <div
+                key={idx}
+                className="group paper-surface note-card rounded-2xl p-6 sm:p-7 relative overflow-hidden transition-all duration-300 hover:shadow-md border border-[#DDD9D2]"
+              >
+                {/* Washi tape detail */}
+                <div className="absolute -top-1.5 left-8 w-14 h-3 bg-[#C8C3AA]/35 rounded-b-xs border-b border-[#B0AB94]/25"></div>
+
+                {/* Top header row */}
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-3">
+                    {/* Avatar circle */}
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#2B4C5E]/10 via-[#C4960A]/12 to-[#2B4C5E]/5 border border-[#DDD9D2] flex items-center justify-center text-[#2C2A26] font-bold text-sm shadow-xs">
+                      {story.initials}
+                    </div>
+                    <div>
+                      <h4 className="text-[#2C2A26] font-semibold text-base leading-tight group-hover:text-[#2B4C5E] transition-colors">
+                        {story.name}
+                      </h4>
+                      <p className="text-[#8A8680] text-[11px] font-medium flex items-center gap-1 mt-0.5">
+                        <i className="ri-building-line text-[10px] text-[#C4960A]"></i>
+                        {story.program} · {story.company}
+                      </p>
+                    </div>
+                  </div>
+
+                  <span className="text-[#8A8680] text-[10px] italic bg-[#F5F3EF] px-2 py-0.5 rounded border border-[#DDD9D2]/60">
+                    Perfil Estudiante
+                  </span>
+                </div>
+
+                {/* Role title */}
+                <div className="mb-3.5 bg-[#FAF8F4] p-3 rounded-xl border border-[#DDD9D2]/70">
+                  <span className="text-[#2B4C5E] text-[9px] font-bold uppercase tracking-widest block mb-1">
+                    Posición Estratégica
+                  </span>
+                  <p className="text-[#2C2A26] font-semibold text-xs sm:text-[13px] leading-snug">
+                    {story.role}
+                  </p>
+                </div>
+
+                {/* Strategic area tags */}
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {story.areas.map((area, i) => (
+                    <span
+                      key={i}
+                      className="text-[#5C5850] text-[10px] font-medium px-2.5 py-0.5 rounded-full border border-[#DDD9D2] bg-[#FFFDF9]"
+                    >
+                      #{area}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Description quote */}
+                <p className="text-[#5C5850] text-xs leading-relaxed italic border-l-2 border-[#C4960A]/40 pl-3 mb-4 bg-[#F5F3EF]/40 py-2 rounded-r-lg">
+                  "{story.description}"
+                </p>
+
+                {/* Card footer */}
+                <div className="pt-3 border-t border-[#DDD9D2]/50 flex items-center justify-between text-[11px]">
+                  <span className="text-[#8A8680] text-[10px] flex items-center gap-1">
+                    <i className="ri-calendar-line text-[9px]"></i>
+                    {story.period}
+                  </span>
+                  <a
+                    href={story.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#2B4C5E] font-medium hover:underline flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
+                  >
+                    <span>Ver empresa</span>
+                    <i className="ri-arrow-right-up-line text-xs"></i>
+                  </a>
                 </div>
               </div>
             ))}

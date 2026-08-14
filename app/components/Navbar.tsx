@@ -17,7 +17,7 @@ export default function Navbar() {
 
   // Track active section via Intersection Observer
   useEffect(() => {
-    const sectionIds = ["inicio", "sobre-mi", "cursos", "evidencia", "contacto"];
+    const sectionIds = ["inicio", "sobre-mi", "cursos", "evidencia", "casos-de-exito", "contacto"];
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
@@ -51,6 +51,7 @@ export default function Navbar() {
     { label: "Profesor", id: "sobre-mi" },
     { label: "Cursos", id: "cursos" },
     { label: "Evidencia", id: "evidencia" },
+    { label: "Casos de Éxito", id: "casos-de-exito" },
     { label: "Contacto", id: "contacto" },
   ];
 
