@@ -78,19 +78,15 @@ export default function Hero() {
             {/* Card Content Grid */}
             <div className="flex items-start gap-4 sm:gap-5 relative z-10">
               
-              {/* Left: Animated Icon Box with Multi-layer Glow */}
-              <div className="flex-shrink-0 relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#2B4C5E]/8 via-[#C4960A]/15 to-[#4285F4]/12 p-2.5 border border-[#C4960A]/25 shadow-xs group-hover:scale-115 group-hover:rotate-6 group-hover:shadow-[0_0_20px_rgba(196,150,10,0.25)] group-hover:border-[#C4960A]/50 transition-all duration-300 ease-out">
+              {/* Left: Standalone Gemini Icon */}
+              <div className="flex-shrink-0 relative flex items-center justify-center pt-1">
                 <Image
                   src={geminiIcon}
                   alt="Google Gemini Fellow"
-                  width={32}
-                  height={32}
-                  className="object-contain transition-transform duration-300 group-hover:scale-105"
+                  width={34}
+                  height={34}
+                  className="object-contain group-hover:scale-115 group-hover:rotate-12 transition-transform duration-300 ease-out drop-shadow-[0_2px_8px_rgba(196,150,10,0.25)]"
                 />
-                {/* Floating spark badge on icon */}
-                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-[#C4960A] border-2 border-[#FFFDF9] flex items-center justify-center shadow-xs">
-                  <i className="ri-sparkling-fill text-[7px] text-white"></i>
-                </span>
               </div>
 
               {/* Middle/Right: Info & Text */}
