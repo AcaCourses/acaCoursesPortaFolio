@@ -67,38 +67,39 @@ export default function Hero() {
             href="https://edu.google.com/for-educators/communities/higher-ed-faculty-ai-fellowship/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative w-full max-w-[440px] px-4 py-3 sm:px-5 sm:py-3.5 rounded-xl bg-[#FFFDF9]/95 border border-[#C4960A]/25 hover:border-[#C4960A]/60 shadow-[0_3px_18px_rgba(43,76,94,0.06)] hover:shadow-[0_10px_28px_rgba(196,150,10,0.14)] hover:-translate-y-1 scale-100 hover:scale-[1.01] transition-all duration-300 ease-out backdrop-blur-md overflow-hidden text-left block cursor-pointer"
+            className="group relative inline-block p-[1.5px] rounded-xl overflow-hidden cursor-pointer"
           >
-            {/* Top Washi Tape Detail */}
-            <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-12 h-2.5 bg-[#C8C3AA]/35 backdrop-blur-xs rounded-xs border-b border-[#B0AB94]/25 pointer-events-none z-20"></div>
+            {/* Animated Gemini Border Glow (Ignites on hover & subtle base glow) */}
+            <div className="absolute inset-0 rounded-xl gemini-border-animated opacity-25 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-            {/* Animated shimmer sweep effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#C4960A]/12 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none"></div>
-
-            {/* Card Content Grid */}
-            <div className="flex items-center gap-3.5 relative z-10">
+            {/* Inner Rectangle Container (Clean background, NO shadow) */}
+            <div className="relative w-[340px] sm:w-[420px] px-4 py-3 sm:px-5 sm:py-3.5 rounded-[10.5px] bg-[#FFFDF9] border border-[#DDD9D2]/70 group-hover:border-transparent transition-colors duration-300 text-left">
               
-              {/* Left: Standalone Gemini Icon with Slide Animation */}
-              <div className="flex-shrink-0 relative flex items-center justify-center animate-gemini-slide">
-                <Image
-                  src={geminiIcon}
-                  alt="Google Gemini Fellow"
-                  width={28}
-                  height={28}
-                  className="object-contain group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300 ease-out drop-shadow-[0_2px_6px_rgba(196,150,10,0.25)]"
-                />
-              </div>
+              {/* Card Content Grid */}
+              <div className="flex items-center gap-3.5 relative z-10">
+                
+                {/* Left: Standalone Gemini Icon (Starts in center, glows, glides left) */}
+                <div className="flex-shrink-0 relative flex items-center justify-center animate-gemini-center-slide z-20">
+                  <Image
+                    src={geminiIcon}
+                    alt="Google Gemini Fellow"
+                    width={28}
+                    height={28}
+                    className="object-contain transition-transform duration-300 ease-out"
+                  />
+                </div>
 
-              {/* Middle/Right: Info & Text with Reveal Animation */}
-              <div className="flex-1 min-w-0 animate-fellow-text-reveal">
-                <h3 className="text-[#2C2A26] font-semibold text-xs sm:text-sm tracking-tight leading-tight group-hover:text-[#2B4C5E] transition-colors duration-200 flex items-center justify-between gap-1.5">
-                  <span>Google Higher Ed Faculty AI Fellow LATAM</span>
-                  <i className="ri-arrow-right-up-line text-xs text-[#8A8680] group-hover:text-[#C4960A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 flex-shrink-0"></i>
-                </h3>
+                {/* Right: Info & Text (Only renders/fades in AFTER logo finishes transition) */}
+                <div className="flex-1 min-w-0 animate-card-body-fade">
+                  <h3 className="text-[#2C2A26] font-semibold text-xs sm:text-sm tracking-tight leading-tight group-hover:text-[#2B4C5E] transition-colors duration-200 flex items-center justify-between gap-1.5">
+                    <span>Google Higher Ed Faculty AI Fellow LATAM</span>
+                    <i className="ri-arrow-right-up-line text-xs text-[#8A8680] group-hover:text-[#4285F4] transition-colors duration-200 flex-shrink-0"></i>
+                  </h3>
 
-                <p className="text-[#5C5850] text-[11px] leading-tight mt-0.5 italic">
-                  Fellowship de IA para Docentes de Educación Superior · 2026
-                </p>
+                  <p className="text-[#5C5850] text-[11px] leading-tight mt-0.5 italic">
+                    Fellowship de IA para Docentes de Educación Superior · 2026
+                  </p>
+                </div>
               </div>
             </div>
           </a>
