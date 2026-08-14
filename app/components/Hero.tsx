@@ -46,20 +46,6 @@ export default function Hero() {
         </p>
 
         {/* Metadata line */}
-        <div className="mb-8 animate-fade-up-delay-3 flex items-center justify-center">
-          <p className="text-[#8A8680] text-xs sm:text-sm tracking-[0.04em] flex flex-wrap items-center justify-center gap-2">
-            <span className="text-[#C4960A] text-[10px] font-semibold uppercase tracking-widest mr-1">
-              Líneas:
-            </span>
-            <span>Desarrollo web</span>
-            <span className="text-[#C4960A]/60">·</span>
-            <span>Cloud</span>
-            <span className="text-[#C4960A]/60">·</span>
-            <span>IA aplicada</span>
-            <span className="text-[#C4960A]/60">·</span>
-            <span>ABP</span>
-          </p>
-        </div>
 
         {/* ─── COMPACT GOOGLE FELLOWSHIP CARD ─── */}
         <div className="animate-fade-up-delay-4 flex justify-center mt-5">
@@ -71,7 +57,7 @@ export default function Hero() {
           >
             {/* Card Content Grid */}
             <div className="flex items-center gap-3.5 relative z-10">
-              
+
               {/* Left: Standalone Gemini Icon (Center glow, spins as it glides left) */}
               <div className="flex-shrink-0 relative flex items-center justify-center animate-gemini-center-slide z-20">
                 <Image
