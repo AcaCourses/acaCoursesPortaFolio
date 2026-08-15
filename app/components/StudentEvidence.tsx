@@ -598,101 +598,54 @@ export default function StudentEvidence() {
           </div>
         </div>
 
-        {/* ─── 3.8 CASOS DE ÉXITO — Fichas de Trayectoria Profesional ─── */}
+        {/* ─── 3.8 CASOS DE ÉXITO — Manifiesto de Impacto & Superación ─── */}
         <div id="casos-de-exito" className="mb-14 sm:mb-20 scroll-mt-24">
-          <div className="flex items-center justify-between mb-7">
-            <div className="flex items-center gap-3">
-              <span className="w-6 h-px bg-[#DDD9D2]"></span>
-              <h3 className="text-[#2C2A26] font-semibold text-xs uppercase tracking-[0.15em]">
-                Casos de Éxito & Impacto Profesional
-              </h3>
-              <span className="text-[#8A8680] text-[10px] italic hidden sm:inline ml-2">
-                — estudiantes vinculados a posiciones estratégicas
+          <div className="paper-surface bg-ruled rounded-2xl p-7 sm:p-10 border border-[#DDD9D2] relative overflow-hidden shadow-md">
+            {/* Washi tape detail on top */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-4 bg-[#C8C3AA]/40 backdrop-blur-xs rounded-b-xs border-b border-[#B0AB94]/30 pointer-events-none"></div>
+
+            <div className="max-w-[78ch] mx-auto text-center space-y-5">
+              <span className="inline-flex items-center gap-2 bg-[#C4960A]/10 text-[#C4960A] text-xs font-semibold px-3 py-1 rounded-full border border-[#C4960A]/20">
+                <i className="ri-heart-pulse-fill"></i>
+                Comunidad & Superación Profesional
               </span>
-            </div>
-            <span className="text-[#3E7A22] text-[10px] font-semibold px-2.5 py-1 rounded bg-[#3E7A22]/10 border border-[#3E7A22]/20 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#3E7A22] animate-pulse"></span>
-              Spark Me Up · Walmart
-            </span>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {successStories.map((story, idx) => (
-              <div
-                key={idx}
-                className="group paper-surface note-card rounded-2xl p-6 sm:p-7 relative overflow-hidden transition-all duration-300 hover:shadow-md border border-[#DDD9D2]"
+              <h3
+                className="text-2xl sm:text-3xl md:text-4xl text-[#2C2A26] font-normal leading-snug"
+                style={{ fontFamily: "'Instrument Serif', serif" }}
               >
-                {/* Washi tape detail */}
-                <div className="absolute -top-1.5 left-8 w-14 h-3 bg-[#C8C3AA]/35 rounded-b-xs border-b border-[#B0AB94]/25"></div>
+                Los verdaderos casos de éxito son <span className="underline-hand text-[#2B4C5E]">todos ustedes</span>
+              </h3>
 
-                {/* Top header row */}
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="flex items-center gap-3">
-                    {/* Avatar circle */}
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#2B4C5E]/10 via-[#C4960A]/12 to-[#2B4C5E]/5 border border-[#DDD9D2] flex items-center justify-center text-[#2C2A26] font-bold text-sm shadow-xs">
-                      {story.initials}
-                    </div>
-                    <div>
-                      <h4 className="text-[#2C2A26] font-semibold text-base leading-tight group-hover:text-[#2B4C5E] transition-colors">
-                        {story.name}
-                      </h4>
-                      <p className="text-[#8A8680] text-[11px] font-medium flex items-center gap-1 mt-0.5">
-                        <i className="ri-building-line text-[10px] text-[#C4960A]"></i>
-                        {story.program} · {story.company}
-                      </p>
-                    </div>
-                  </div>
+              <p className="text-[#5C5850] text-base sm:text-lg leading-relaxed">
+                Son cada estudiante que venció el miedo a la terminal, que rompió sus propios límites, que no se rindió ante un bug y que decidió atreverse a construir su futuro paso a paso.
+              </p>
 
-                  <span className="text-[#8A8680] text-[10px] italic bg-[#F5F3EF] px-2 py-0.5 rounded border border-[#DDD9D2]/60">
-                    Perfil Estudiante
-                  </span>
-                </div>
-
-                {/* Role title */}
-                <div className="mb-3.5 bg-[#FAF8F4] p-3 rounded-xl border border-[#DDD9D2]/70">
-                  <span className="text-[#2B4C5E] text-[9px] font-bold uppercase tracking-widest block mb-1">
-                    Posición Estratégica
-                  </span>
-                  <p className="text-[#2C2A26] font-semibold text-xs sm:text-[13px] leading-snug">
-                    {story.role}
-                  </p>
-                </div>
-
-                {/* Strategic area tags */}
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {story.areas.map((area, i) => (
-                    <span
-                      key={i}
-                      className="text-[#5C5850] text-[10px] font-medium px-2.5 py-0.5 rounded-full border border-[#DDD9D2] bg-[#FFFDF9]"
-                    >
-                      #{area}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Description quote */}
-                <p className="text-[#5C5850] text-xs leading-relaxed italic border-l-2 border-[#C4960A]/40 pl-3 mb-4 bg-[#F5F3EF]/40 py-2 rounded-r-lg">
-                  "{story.description}"
+              <div className="py-4 px-6 bg-[#FAF8F4] rounded-xl border border-[#DDD9D2]/80 inline-block my-2">
+                <p className="text-xs sm:text-sm text-[#2C2A26] font-medium">
+                  Gracias a su dedicación, nuestros alumnos se han integrado con éxito a grandes empresas como:
                 </p>
-
-                {/* Card footer */}
-                <div className="pt-3 border-t border-[#DDD9D2]/50 flex items-center justify-between text-[11px]">
-                  <span className="text-[#8A8680] text-[10px] flex items-center gap-1">
-                    <i className="ri-calendar-line text-[9px]"></i>
-                    {story.period}
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-3">
+                  <span className="bg-white px-3 py-1.5 rounded-lg border border-[#DDD9D2] text-xs font-bold text-[#2B4C5E] shadow-2xs">
+                    Walmart
                   </span>
-                  <a
-                    href={story.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#2B4C5E] font-medium hover:underline flex items-center gap-1 group-hover:translate-x-0.5 transition-transform"
-                  >
-                    <span>Ver empresa</span>
-                    <i className="ri-arrow-right-up-line text-xs"></i>
-                  </a>
+                  <span className="bg-white px-3 py-1.5 rounded-lg border border-[#DDD9D2] text-xs font-bold text-[#2B4C5E] shadow-2xs">
+                    EPAM Systems
+                  </span>
+                  <span className="bg-white px-3 py-1.5 rounded-lg border border-[#DDD9D2] text-xs font-bold text-[#2B4C5E] shadow-2xs">
+                    BBVA
+                  </span>
                 </div>
               </div>
-            ))}
+
+              <div className="pt-2">
+                <p className="text-sm sm:text-base text-[#2B4C5E] font-semibold italic flex items-center justify-center gap-2">
+                  <i className="ri-sparkling-fill text-[#C4960A]"></i>
+                  Y si estás leyendo esto... espero que tú seas nuestra próxima estrella.
+                  <i className="ri-sparkling-fill text-[#C4960A]"></i>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
