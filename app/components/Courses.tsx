@@ -1,7 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Reveal from "./Reveal";
+
+// Import images from assets/imgs
+import gitcourseImg from "./assets/imgs/gitcourse.png";
+import webdevImg from "./assets/imgs/webdevelopment.png";
+import cloudImg from "./assets/imgs/cloudcomputing.png";
 
 export default function Courses() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -28,6 +34,8 @@ export default function Courses() {
       icon: "ri-github-fill",
       accent: "#2B4C5E",
       flagship: true,
+      image: gitcourseImg,
+      stampBg: "#F0F4F8"
     },
     {
       id: "web-dev",
@@ -49,6 +57,8 @@ export default function Courses() {
       icon: "ri-global-line",
       accent: "#1A5F7A",
       flagship: false,
+      image: webdevImg,
+      stampBg: "#EBF5FB"
     },
     {
       id: "cloud-comp",
@@ -70,6 +80,8 @@ export default function Courses() {
       icon: "ri-cloud-line",
       accent: "#1B6B4A",
       flagship: false,
+      image: cloudImg,
+      stampBg: "#EAF2E8"
     }
   ];
 
@@ -162,7 +174,7 @@ export default function Courses() {
         </div>
 
         {/* ─── STACKED CARDS CONTAINER ─── */}
-        <div className="relative h-[620px] sm:h-[580px] md:h-[540px] mb-16">
+        <div className="relative min-h-[660px] sm:min-h-[580px] md:min-h-[540px] mb-16">
           {courses.map((course, idx) => {
             const total = courses.length;
             const offset = (idx - activeIndex + total) % total;
@@ -208,7 +220,7 @@ export default function Courses() {
                   opacity: opacity,
                 }}
               >
-                <div className="note-card rounded-2xl overflow-hidden bg-[#FFFDF9] border border-[#DDD9D2] shadow-xl flex flex-col h-[520px] sm:h-[480px]">
+                <div className="note-card rounded-2xl overflow-hidden bg-[#FFFDF9] border border-[#DDD9D2] shadow-xl flex flex-col">
                   {/* Card Banner / Header Identical for all */}
                   <div
                     className="relative px-5 py-4 border-b border-[#E0E0DE] flex flex-wrap items-center justify-between gap-3 shrink-0"
@@ -251,52 +263,79 @@ export default function Courses() {
                     </div>
                   </div>
 
-                  {/* Card Content Body - Identical Structure & Height for all */}
-                  <div className="p-5 sm:p-6 flex flex-col flex-1 overflow-hidden justify-between">
-                    {/* Summary */}
-                    <div>
-                      <p className="text-sm sm:text-base text-[#5C5850] leading-relaxed mb-4">
-                        {course.summary}
-                      </p>
+                  {/* Card Content Body: Split Left (Sticker/Stamp Image) & Right (Text content) */}
+                  <div className="p-5 sm:p-6 flex flex-col md:flex-row gap-6 items-stretch justify-between">
+                    {/* LEFT: Notebook Stamp Sticker Container */}
+                    <div className="w-full md:w-[260px] lg:w-[280px] shrink-0 flex flex-col items-center justify-center self-center">
+                      <div className="relative w-full aspect-[4/3] sm:aspect-square max-w-[260px] rounded-xl p-3 border-2 border-dashed border-[#C5C0B6] shadow-md transition-transform duration-300 hover:rotate-1 hover:scale-[1.02] flex items-center justify-center group overflow-hidden"
+                           style={{ backgroundColor: course.stampBg }}
+                      >
+                        {/* Washi tape visual detail on top of stamp */}
+                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-16 h-5 bg-[#E2DEC9]/70 backdrop-blur-xs border-x border-[#C5C0B6] transform -rotate-1 z-10 shadow-2xs pointer-events-none" />
 
-                      {/* Qué vive el estudiante */}
-                      <div className="mb-4">
-                        <p className="text-[#2C2A26] text-xs font-semibold uppercase tracking-wider mb-2">
-                          Qué vive el estudiante
-                        </p>
-                        <ul className="grid sm:grid-cols-2 gap-1.5">
-                          {course.experience.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-[#5C5850] text-[13px] leading-snug">
-                              <i className="ri-checkbox-circle-line text-[#3E7A22] text-sm shrink-0 mt-0.5" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        {/* Stamp inner paper with white background handling */}
+                        <div className="w-full h-full bg-white rounded-lg p-2 border border-[#E0E0DE] shadow-inner flex items-center justify-center overflow-hidden">
+                          <Image
+                            src={course.image}
+                            alt={`Estampa de ${course.name}`}
+                            className="w-full h-full object-contain filter drop-shadow-xs transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+
+                        {/* Stamp postmark corner seal icon */}
+                        <div className="absolute bottom-2 right-2 w-7 h-7 rounded-full border border-[#8A8680]/30 flex items-center justify-center text-[#8A8680]/40 text-[10px] font-mono pointer-events-none transform rotate-12">
+                          <i className="ri-award-line text-xs" />
+                        </div>
                       </div>
                     </div>
 
-                    {/* Bottom Area: Stack Tags & CTA Button */}
-                    <div className="pt-3 border-t border-[#E0E0DE] flex flex-wrap items-center justify-between gap-3 shrink-0">
-                      <div className="flex flex-wrap gap-1.5">
-                        {course.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="bg-[#F5F3EF] border border-[#DDD9D2] text-[#5C5850] text-[11px] font-mono px-2 py-0.5 rounded-md"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                    {/* RIGHT: Text Content & Info */}
+                    <div className="flex-1 flex flex-col justify-between">
+                      <div>
+                        {/* Summary */}
+                        <p className="text-sm sm:text-base text-[#5C5850] leading-relaxed mb-4">
+                          {course.summary}
+                        </p>
+
+                        {/* Qué vive el estudiante */}
+                        <div className="mb-4">
+                          <p className="text-[#2C2A26] text-xs font-semibold uppercase tracking-wider mb-2">
+                            Qué vive el estudiante
+                          </p>
+                          <ul className="space-y-1.5">
+                            {course.experience.map((item, idx) => (
+                              <li key={idx} className="flex items-start gap-2 text-[#5C5850] text-[13px] leading-snug">
+                                <i className="ri-checkbox-circle-line text-[#3E7A22] text-sm shrink-0 mt-0.5" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
 
-                      <a
-                        href={course.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium px-4 py-2 rounded-xl border border-[#2B4C5E]/30 text-[#2B4C5E] transition-all duration-150 hover:bg-[#2B4C5E] hover:text-[#FAF8F4] active:scale-95 shadow-xs ml-auto"
-                      >
-                        Ver página del curso
-                        <i className="ri-arrow-right-up-line" />
-                      </a>
+                      {/* Bottom Area: Stack Tags & CTA Button */}
+                      <div className="pt-3 border-t border-[#E0E0DE] flex flex-wrap items-center justify-between gap-3 shrink-0">
+                        <div className="flex flex-wrap gap-1.5">
+                          {course.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="bg-[#F5F3EF] border border-[#DDD9D2] text-[#5C5850] text-[11px] font-mono px-2 py-0.5 rounded-md"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <a
+                          href={course.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium px-4 py-2 rounded-xl border border-[#2B4C5E]/30 text-[#2B4C5E] transition-all duration-150 hover:bg-[#2B4C5E] hover:text-[#FAF8F4] active:scale-95 shadow-xs ml-auto"
+                        >
+                          Ver página del curso
+                          <i className="ri-arrow-right-up-line" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
