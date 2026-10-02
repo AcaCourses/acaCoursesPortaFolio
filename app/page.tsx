@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Courses from "./components/Courses";
+import Partnerships from "./components/Partnerships";
 import StudentEvidence from "./components/StudentEvidence";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -17,6 +18,9 @@ export default function Home() {
       </Reveal>
       <Reveal variant="fade">
         <Courses />
+      </Reveal>
+      <Reveal variant="fade">
+        <Partnerships />
       </Reveal>
       <Reveal variant="fade">
         <StudentEvidence />

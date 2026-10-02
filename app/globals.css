@@ -341,3 +341,11 @@ html {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(221, 217, 210, 0.6);
 }
+
+/* ═══════════════════════════════════════════
+   POLAROID - Hover rotate & scale
+   ═══════════════════════════════════════════ */
+.polaroid-block:hover > div {
+  transform: rotate(-1.2deg) scale(1.04);
+  box-shadow: 0 6px 20px rgba(44, 42, 38, 0.13), 0 2px 6px rgba(44, 42, 38, 0.06);
+}
